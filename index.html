@@ -1,92 +1,232 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta name="google-site-verification" content="Y_mDtegNHSN3iI-Svenmgq6s_YvKHSUzen2iZvY1Z2o" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAMNNÜR | Moda</title>
+<meta name="theme-color" content="#f5f1eb">
+<meta name="description" content="TAMNNÜR: una nueva forma de vestir. Nuestra primera colección llegará próximamente.">
+<title>TAMNNÜR | Próximamente</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-:root{--cream:#f7f3ed;--beige:#e6d8c8;--brown:#59483d;--dark:#292521}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#fff;color:var(--dark)}
-header{text-align:center;background:var(--cream);padding:27px 15px 18px}
-.logo{font-family:Georgia,serif;font-size:34px;letter-spacing:7px;margin:0}
-.subtitle{font-size:10px;letter-spacing:4px;margin-top:10px}
-nav{display:flex;justify-content:center;gap:25px;padding:15px;border-bottom:1px solid #eee;font-size:12px}
-nav a{color:var(--dark);text-decoration:none}
-.hero{background:var(--beige);padding:55px 22px;text-align:center}
-.hero h1{font-family:Georgia,serif;font-size:34px;font-weight:normal;margin:0 0 12px}
-.hero p{font-size:14px;line-height:1.6}
-.button{display:inline-block;background:var(--dark);color:white;padding:13px 24px;text-decoration:none;border:0;cursor:pointer;margin-top:12px}
-section{padding:35px 18px}
-h2{text-align:center;font-family:Georgia,serif;font-weight:normal;font-size:26px}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
-.product{text-align:center;padding-bottom:18px}
-.product img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--cream)}
-.product h3{font-size:13px;font-weight:normal;margin:12px 0 6px}
-.price{font-size:14px}
-.product button{background:var(--brown);color:white;border:0;padding:10px 12px;margin-top:10px;cursor:pointer}
-.about{background:var(--cream);text-align:center;line-height:1.8;font-size:14px}
-.cart{background:#fff;border:1px solid var(--beige);padding:18px;margin:0 18px 30px;text-align:center}
-footer{background:var(--dark);color:white;text-align:center;padding:28px 15px;font-size:12px;line-height:2}
-footer a{color:white}
-@media(min-width:650px){.products{grid-template-columns:repeat(4,minmax(0,1fr))}.hero{padding:85px 20px}.hero h1{font-size:48px}}
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+background: #f5f1eb;
+color: #29251f;
+font-family: 'Montserrat', sans-serif;
+font-weight: 300;
+}
+
+.announcement {
+background: #29251f;
+color: #f5f1eb;
+text-align: center;
+padding: 11px 10px;
+font-size: 9px;
+letter-spacing: 2px;
+}
+
+header {
+padding: 29px 16px 25px;
+text-align: center;
+}
+
+.logo {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(32px, 8vw, 47px);
+font-weight: 500;
+letter-spacing: 8px;
+padding-left: 8px;
+}
+
+.subtitle {
+font-size: 9px;
+letter-spacing: 3px;
+margin-top: 7px;
+color: #81766a;
+}
+
+.hero {
+position: relative;
+min-height: 490px;
+height: 66vh;
+max-height: 720px;
+margin: 0 15px;
+overflow: hidden;
+background: #d8cbbb;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+.hero-image {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center;
+}
+
+.overlay {
+position: absolute;
+inset: 0;
+background: linear-gradient(
+to bottom,
+rgba(25, 22, 19, 0.08),
+rgba(25, 22, 19, 0.40)
+);
+}
+
+.hero-content {
+position: relative;
+z-index: 1;
+color: #fffaf3;
+padding: 25px;
+max-width: 560px;
+}
+
+.eyebrow {
+font-size: 10px;
+letter-spacing: 4px;
+line-height: 1.8;
+margin-bottom: 20px;
+}
+
+h1 {
+font-family: 'Cormorant Garamond', serif;
+font-weight: 400;
+font-size: clamp(43px, 9vw, 72px);
+line-height: 0.98;
+margin-bottom: 24px;
+}
+
+.description {
+font-size: 11px;
+line-height: 2;
+letter-spacing: 0.5px;
+max-width: 340px;
+margin: 0 auto 28px;
+}
+
+.coming-soon {
+display: inline-block;
+border: 1px solid rgba(255, 250, 243, 0.9);
+padding: 15px 28px;
+font-size: 10px;
+letter-spacing: 3px;
+}
+
+.intro {
+text-align: center;
+padding: 62px 24px 65px;
+}
+
+.intro h2 {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(30px, 6vw, 43px);
+font-weight: 400;
+margin-bottom: 16px;
+}
+
+.intro p {
+color: #746b61;
+font-size: 11px;
+line-height: 2;
+max-width: 400px;
+margin: 0 auto 27px;
+}
+
+.instagram {
+display: inline-block;
+color: #29251f;
+border-bottom: 1px solid #29251f;
+padding-bottom: 6px;
+font-size: 10px;
+letter-spacing: 2px;
+text-decoration: none;
+}
+
+footer {
+border-top: 1px solid #ded6cc;
+text-align: center;
+padding: 24px 12px;
+color: #81766a;
+font-size: 9px;
+letter-spacing: 1.5px;
+}
+
+@media (max-width: 480px) {
+.hero {
+margin: 0 10px;
+min-height: 460px;
+height: 65vh;
+}
+
+.intro {
+padding: 48px 22px 52px;
+}
+}
 </style>
 </head>
+
 <body>
+<div class="announcement">
+NUESTRA PRIMERA COLECCIÓN · PRÓXIMAMENTE
+</div>
+
 <header>
-<h1 class="logo">TAMNNÜR</h1>
+<div class="logo">TAMNNÜR</div>
 <div class="subtitle">MODA CON ESENCIA</div>
 </header>
-<nav>
-<a href="#inicio">INICIO</a>
-<a href="#coleccion">COLECCIÓN</a>
-<a href="#nosotros">NOSOTROS</a>
-<a href="#contacto">CONTACTO</a>
-</nav>
+
 <main>
-<div class="hero" id="inicio">
-<h1>Tu estilo, tu esencia.</h1>
-<p>Prendas seleccionadas para vestir como eres.</p>
-<a class="button" href="#coleccion">DESCUBRIR COLECCIÓN</a>
-</div>
-<section id="coleccion">
-<h2>Nuestra colección</h2>
-<p style="text-align:center;font-size:13px;color:#777">Novedades seleccionadas para ti</p>
-<div class="products">
-<div class="product">
-<img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80" alt="Look de moda">
-<h3>Look elegante</h3><div class="price">Precio próximamente</div>
-</div>
-<div class="product">
-<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Moda femenina">
-<h3>Estilo diario</h3><div class="price">Precio próximamente</div>
-</div>
-<div class="product">
-<img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=600&q=80" alt="Prendas de moda">
-<h3>Esenciales</h3><div class="price">Precio próximamente</div>
-</div>
-<div class="product">
-<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80" alt="Colección de ropa">
-<h3>Nueva temporada</h3><div class="price">Precio próximamente</div>
-</div>
+<section class="hero">
+<img
+class="hero-image"
+src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85"
+alt="Editorial de moda femenina"
+>
+<div class="overlay"></div>
+
+<div class="hero-content">
+<div class="eyebrow">UNA NUEVA FORMA DE VESTIR</div>
+<h1>Algo especial<br>está por llegar.</h1>
+<p class="description">
+Estamos preparando nuestra primera colección.
+Pronto descubrirás una nueva forma de vestir con TAMNNÜR.
+</p>
+<div class="coming-soon">PRÓXIMAMENTE</div>
 </div>
 </section>
-<section class="about" id="nosotros">
-<h2>Sobre TAMNNÜR</h2>
-<p>Una forma de expresar tu personalidad a través de la moda. Descubre nuestra selección y encuentra las prendas que encajan contigo.</p>
+
+<section class="intro">
+<h2>El comienzo de algo bonito.</h2>
+<p>
+Una selección de prendas pensada para acompañarte,
+expresar tu estilo y hacer especiales los pequeños detalles.
+Muy pronto.
+</p>
+
+<!-- Sustituye # por el enlace de tu Instagram cuando lo tengas -->
+<a class="instagram" href="#" onclick="return false;">
+SÍGUENOS EN INSTAGRAM
+</a>
 </section>
-<div class="cart">
-<h2>¿Te gusta alguna prenda?</h2>
-<p>Escríbenos por WhatsApp para consultar precios, tallas y disponibilidad.</p>
-<a class="button" href="#contacto">CONTACTAR</a>
-</div>
 </main>
-<footer id="contacto">
-<strong style="letter-spacing:4px">TAMNNÜR</strong>
-<p>¿Tienes alguna pregunta o quieres hacer un pedido?</p>
-<a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank">CONTACTAR POR WHATSAPP</a>
-<p>© 2026 TAMNNÜR · Todos los derechos reservados</p>
+
+<footer>
+TAMNNÜR · UNA NUEVA HISTORIA ESTÁ A PUNTO DE COMENZAR
 </footer>
 </body>
-  </html>
+</html>
+
