@@ -1,260 +1,998 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f5f1eb">
-<meta name="description" content="TAMNÜR: una nueva forma de vestir. Nuestra primera colección llegará próximamente.">
-<title>TAMNÜR | Próximamente</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f0e8">
+  <title>TAMNÜR | Moda y complementos</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fondo: #faf7f2;
+      --crema: #eee3d5;
+      --marron: #5b4034;
+      --texto: #382a24;
+      --suave: #8c7567;
+      --blanco: #ffffff;
+      --borde: #e4d8ca;
+    }
 
-<style>
-* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-background: #f5f1eb;
-color: #29251f;
-font-family: 'Montserrat', sans-serif;
-font-weight: 300;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.announcement {
-background: #29251f;
-color: #f5f1eb;
-text-align: center;
-padding: 11px 10px;
-font-size: 9px;
-letter-spacing: 2px;
-}
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-header {
-padding: 29px 16px 25px;
-text-align: center;
-}
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-.logo {
-font-family: 'Cormorant Garamond', serif;
-font-size: clamp(32px, 8vw, 47px);
-font-weight: 500;
-letter-spacing: 8px;
-padding-left: 8px;
-}
+    button {
+      font: inherit;
+    }
 
-.subtitle {
-font-size: 9px;
-letter-spacing: 3px;
-margin-top: 7px;
-color: #81766a;
-}
+    .topbar {
+      background: var(--marron);
+      color: white;
+      text-align: center;
+      padding: 10px 12px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
 
-.hero {
-position: relative;
-min-height: 490px;
-height: 66vh;
-max-height: 720px;
-margin: 0 15px;
-overflow: hidden;
-background: #d8cbbb;
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-}
+    header {
+      background: var(--fondo);
+      padding: 24px 16px 18px;
+      text-align: center;
+      border-bottom: 1px solid var(--borde);
+    }
 
-.hero-image {
-position: absolute;
-inset: 0;
-width: 100%;
-height: 100%;
-object-fit: cover;
-object-position: center;
-}
+    .logo {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 8vw, 48px);
+      letter-spacing: 8px;
+      font-weight: normal;
+    }
 
-.overlay {
-position: absolute;
-inset: 0;
-background: linear-gradient(
-to bottom,
-rgba(25, 22, 19, 0.08),
-rgba(25, 22, 19, 0.40)
-);
-}
+    .tagline {
+      color: var(--suave);
+      font-size: 11px;
+      letter-spacing: 3px;
+      margin: 10px 0 0;
+      text-transform: uppercase;
+    }
 
-.hero-content {
-position: relative;
-z-index: 1;
-color: #fffaf3;
-padding: 25px;
-max-width: 560px;
-}
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 22px;
+      padding: 15px 12px;
+      border-bottom: 1px solid var(--borde);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
 
-.eyebrow {
-font-size: 10px;
-letter-spacing: 4px;
-line-height: 1.8;
-margin-bottom: 20px;
-}
+    nav a {
+      color: var(--texto);
+      text-decoration: none;
+    }
 
-h1 {
-font-family: 'Cormorant Garamond', serif;
-font-weight: 400;
-font-size: clamp(43px, 9vw, 72px);
-line-height: 0.98;
-margin-bottom: 24px;
-}
+    nav a:hover {
+      color: var(--suave);
+    }
 
-.description {
-font-size: 11px;
-line-height: 2;
-letter-spacing: 0.5px;
-max-width: 340px;
-margin: 0 auto 28px;
-}
+    .hero {
+      padding: 55px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #eee2d4, #faf7f2 55%, #e5d5c5);
+    }
 
-.coming-soon {
-display: inline-block;
-border: 1px solid rgba(255, 250, 243, 0.9);
-padding: 15px 28px;
-font-size: 10px;
-letter-spacing: 3px;
-}
+    .hero h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 6vw, 43px);
+      font-weight: normal;
+      margin: 0 0 15px;
+    }
 
-.intro {
-text-align: center;
-padding: 62px 24px 65px;
-}
+    .hero p {
+      color: #6c5548;
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 480px;
+      margin: 0 auto 24px;
+    }
 
-.intro h2 {
-font-family: 'Cormorant Garamond', serif;
-font-size: clamp(30px, 6vw, 43px);
-font-weight: 400;
-margin-bottom: 16px;
-}
+    .button {
+      display: inline-block;
+      background: var(--marron);
+      color: white;
+      border: 1px solid var(--marron);
+      padding: 13px 22px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-align: center;
+      transition: background 0.2s;
+    }
 
-.intro p {
-color: #746b61;
-font-size: 11px;
-line-height: 2;
-max-width: 400px;
-margin: 0 auto 27px;
-}
+    .button:hover {
+      background: #765849;
+    }
 
-.instagram {
-display: inline-block;
-color: #29251f;
-border-bottom: 1px solid #29251f;
-padding-bottom: 6px;
-font-size: 10px;
-letter-spacing: 2px;
-text-decoration: none;
-}
+    .button.secondary {
+      background: transparent;
+      color: var(--marron);
+    }
 
-footer {
-border-top: 1px solid #ded6cc;
-text-align: center;
-padding: 24px 12px;
-color: #81766a;
-font-size: 9px;
-letter-spacing: 1.5px;
-}
+    .button.secondary:hover {
+      background: var(--crema);
+    }
 
-@media (max-width: 480px) {
-.hero {
-margin: 0 10px;
-min-height: 460px;
-height: 65vh;
-}
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 48px 18px;
+    }
 
-.intro {
-padding: 48px 22px 52px;
-}
-}
-</style>
+    .section-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: normal;
+      margin: 0 0 10px;
+    }
+
+    .section-heading p {
+      color: var(--suave);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px 18px;
+    }
+
+    .product-card {
+      min-width: 0;
+      border: 1px solid var(--borde);
+      background: var(--blanco);
+      cursor: pointer;
+      text-align: left;
+      padding: 0;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px #5b403414;
+    }
+
+    .card-image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      background: var(--crema);
+    }
+
+    .card-info {
+      padding: 15px 12px 18px;
+      text-align: center;
+    }
+
+    .card-info h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      font-weight: normal;
+      margin: 0 0 10px;
+    }
+
+    .price {
+      font-size: 14px;
+      color: var(--marron);
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .view-product {
+      display: inline-block;
+      margin-top: 13px;
+      color: var(--suave);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Ficha de producto */
+
+    #detail-view {
+      display: none;
+    }
+
+    .back-button {
+      background: transparent;
+      border: 0;
+      color: var(--marron);
+      padding: 10px 0;
+      margin-bottom: 25px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .detail-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .gallery-main {
+      position: relative;
+      background: var(--crema);
+    }
+
+    .gallery-main img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      display: block;
+      background: var(--crema);
+    }
+
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 0;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      background: #ffffffdf;
+      color: var(--marron);
+      cursor: pointer;
+      font-size: 23px;
+    }
+
+    .gallery-arrow.prev {
+      left: 10px;
+    }
+
+    .gallery-arrow.next {
+      right: 10px;
+    }
+
+    .gallery-count {
+      text-align: center;
+      font-size: 12px;
+      color: var(--suave);
+      margin: 10px 0;
+    }
+
+    .thumbnails {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .thumbnail {
+      width: 76px;
+      height: 90px;
+      padding: 0;
+      border: 1px solid var(--borde);
+      background: var(--crema);
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .thumbnail.active {
+      border: 2px solid var(--marron);
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .detail-info {
+      padding-top: 12px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      color: var(--suave);
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .detail-info h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 4vw, 37px);
+      font-weight: normal;
+      margin: 12px 0;
+    }
+
+    .detail-price {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--marron);
+      margin: 0 0 24px;
+    }
+
+    .detail-description {
+      font-size: 14px;
+      line-height: 1.9;
+      white-space: pre-line;
+      color: #665349;
+    }
+
+    .measurements {
+      margin-top: 18px;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .detail-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .detail-actions .button {
+      width: 100%;
+    }
+
+    .shipping-note {
+      margin-top: 24px;
+      border-top: 1px solid var(--borde);
+      padding-top: 18px;
+      color: var(--suave);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .info-strip {
+      background: var(--crema);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+      padding: 27px 10px;
+      gap: 15px;
+    }
+
+    .info-strip strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      font-weight: normal;
+      margin-bottom: 7px;
+    }
+
+    .info-strip span {
+      font-size: 11px;
+      color: #705a4c;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #392820;
+      color: #f7eee5;
+      text-align: center;
+      padding: 35px 18px;
+    }
+
+    .footer-logo {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: 6px;
+      font-size: 27px;
+      margin: 0 0 12px;
+    }
+
+    footer p {
+      font-size: 12px;
+      line-height: 1.9;
+      color: #e0d0c2;
+    }
+
+    footer a {
+      color: #fff;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      font-size: 12px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+    }
+
+    @media (max-width: 760px) {
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 17px 12px;
+      }
+
+      .card-info {
+        padding: 12px 7px 15px;
+      }
+
+      .card-info h3 {
+        font-size: 15px;
+      }
+
+      .detail-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .detail-info {
+        padding-top: 0;
+      }
+
+      .section {
+        padding: 35px 14px;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+        gap: 23px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div class="announcement">
-NUESTRA PRIMERA COLECCIÓN · PRÓXIMAMENTE
-</div>
+  <div class="topbar">
+    ENVÍOS EN 24/48 HORAS · TIENDA EN CÁCERES
+  </div>
 
-<header>
-<div class="logo">TAMNÜR</div>
-<div class="subtitle">MODA Y COMPLEMENTOS
-</header>
+  <header>
+    <h1 class="logo">TAMNÜR</h1>
+    <p class="tagline">Moda y complementos</p>
+  </header>
 
-<div class="store-info">
-  <span>⌖ Cáceres</span>
-  <span class="separator">|</span>
-  <span>ENVÍOS EN 24–48 HORAS</span>
-</div>
-  
-<main>
-<section class="hero">
-<img
-class="hero-image"
-src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85"
-alt="Editorial de moda femenina"
->
-<div class="overlay"></div>
+  <nav>
+    <a href="#inicio" id="home-link">INICIO</a>
+    <a href="#coleccion" id="collection-link">COLECCIÓN</a>
+    <a href="#contacto" id="contact-link">CONTACTO</a>
+  </nav>
 
-<div class="hero-content">
-<div class="eyebrow">UNA NUEVA FORMA DE VESTIR</div>
-<h1>Algo especial<br>está por llegar.</h1>
-<p class="description">
-Estamos preparando nuestra primera colección.
-Pronto descubrirás una nueva forma de vestir con TAMNÜR.
-</p>
-<div class="coming-soon">PRÓXIMAMENTE</div>
-</div>
-</section>
+  <main id="home-view">
+    <section class="hero" id="inicio">
+      <h2>Tu estilo, tu esencia</h2>
+      <p>
+        Descubre nuestra selección de moda y complementos.
+        Piezas especiales para dar un toque único a cada look.
+      </p>
+      <a class="button" href="#coleccion">DESCUBRIR COLECCIÓN</a>
+    </section>
 
-<section class="intro">
-<h2>El comienzo de algo bonito.</h2>
-<p>
-Una selección de prendas pensada para acompañarte,
-expresar tu estilo y hacer especiales los pequeños detalles.
-Muy pronto.
-</p>
+    <section class="section" id="coleccion">
+      <div class="section-heading">
+        <h2>Nuestra colección</h2>
+        <p>Encuentra tus nuevos favoritos.</p>
+      </div>
+      <div class="products" id="products-grid"></div>
+    </section>
 
-<!-- Sustituye # por el enlace de tu Instagram cuando lo tengas -->
-<a class="instagram" href="https://www.instagram.com/tamnur_0/" target="blank" rel="noopener noreferrer">
-SÍGUENOS EN INSTAGRAM
-</a>
-</section>
-  
-<section class="orders">
-  <h2>¿Quieres hacer tu pedido?</h2>
-  <p>
-    Haz tu pedido directamente por WhatsApp.
-    ¡Te ayudamos con lo que necesites!
-  </p>
+    <section class="info-strip">
+      <div>
+        <strong>📍 Cáceres</strong>
+        <span>Estamos en Cáceres</span>
+      </div>
+      <div>
+        <strong>📦 Envíos 24/48 h</strong>
+        <span>Enviamos tus pedidos</span>
+      </div>
+      <div>
+        <strong>♡ Atención personal</strong>
+        <span>Haz tu pedido por WhatsApp</span>
+      </div>
+    </section>
+  </main>
 
-  <a class="whatsapp"
-     href="https://wa.me/34658894201"
-     target="_blank"
-     rel="noopener noreferrer">
-   658 894 201
-  </a>
+  <main id="detail-view">
+    <section class="section">
+      <button class="back-button" id="back-button" type="button">
+        ← Volver a la colección
+      </button>
 
-  <a class="whatsapp"
-     href="https://wa.me/34600459743"
-     target="_blank"
-     rel="noopener noreferrer">
-      /  600 459 743
-  </a>
-</section>
-</main>
+      <div class="detail-layout">
+        <div class="gallery">
+          <div class="gallery-main">
+            <img id="detail-image" src="" alt="">
+            <button class="gallery-arrow prev" id="prev-image"
+              type="button" aria-label="Foto anterior">‹</button>
+            <button class="gallery-arrow next" id="next-image"
+              type="button" aria-label="Foto siguiente">›</button>
+          </div>
+          <p class="gallery-count" id="gallery-count"></p>
+          <div class="thumbnails" id="thumbnails"></div>
+        </div>
 
-<footer>
-TAMNÜR · UNA NUEVA HISTORIA ESTÁ A PUNTO DE COMENZAR
-</footer>
+        <div class="detail-info">
+          <p class="eyebrow">TAMNÜR · MODA Y COMPLEMENTOS</p>
+          <h2 id="detail-title"></h2>
+          <p class="detail-price" id="detail-price"></p>
+          <div class="detail-description" id="detail-description"></div>
+          <div class="measurements" id="detail-measurements"></div>
+
+          <div class="detail-actions">
+            <a class="button" id="whatsapp-order" href="#" target="_blank"
+              rel="noopener noreferrer">PEDIR POR WHATSAPP</a>
+            <button class="button secondary" id="continue-shopping"
+              type="button">SEGUIR VIENDO PRODUCTOS</button>
+          </div>
+
+          <div class="shipping-note">
+            Envíos en 24/48 horas.<br>
+            Tienda en Cáceres.<br>
+            Para realizar tu pedido, pulsa el botón de WhatsApp.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <p class="footer-logo">TAMNÜR</p>
+    <p>Moda y complementos · Cáceres</p>
+    <p>Envíos en 24/48 horas</p>
+    <p>
+      WhatsApp:
+      <a href="https://wa.me/34658894201" target="_blank"
+        rel="noopener noreferrer">658 894 201</a>
+      ·
+      <a href="https://wa.me/34600459743" target="_blank"
+        rel="noopener noreferrer">600 459 743</a>
+    </p>
+
+    <div class="footer-links">
+      <a href="https://www.instagram.com/tamnur_0/"
+        target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://wa.me/34658894201"
+        target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://wa.me/34600459743"
+        target="_blank" rel="noopener noreferrer">WhatsApp alternativo</a>
+    </div>
+
+    <p>© <span id="year"></span> TAMNÜR. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    /*
+      IMPORTANTE:
+      Los nombres de las imágenes deben coincidir EXACTAMENTE
+      con los archivos que hayas subido a GitHub.
+    */
+
+    const products = [
+      {
+        id: "tote",
+        name: "Bolso Tote",
+        price: 24.99,
+        images: [
+          "Bolso grande.jpg",
+          "modelo de Tote jpg.jpg"
+        ],
+        description:
+          "Elegancia y estilo en un bolso diseñado para acompañarte en tu día a día. Su diseño en tonos marrones y su delicado detalle decorativo lo convierten en un complemento versátil y sofisticado, perfecto para elevar cualquier look. Un imprescindible para quienes buscan combinar estilo y funcionalidad.",
+        measurements: ""
+      },
+      {
+        id: "amara",
+        name: "Blusa Amara",
+        price: null,
+        images: [
+          "IMG_0006.webp"
+        ],
+        description:
+          "Dale un toque especial a tus looks con esta preciosa blusa en color burdeos. Su tonalidad elegante y femenina la convierte en una prenda ideal para crear conjuntos con personalidad, tanto para ocasiones especiales como para tus planes de cada día. Un básico con encanto que no puede faltar en tu armario.",
+        measurements: ""
+      },
+      {
+        id: "vera",
+        name: "Blusa Vera",
+        price: 18,
+        images: [
+          "IMG_0030.png"
+        ],
+        description:
+          "Blusa ideal, con un estilo súper romántico, en estampado de claveles por todo su diseño. Su manga abullonada junto a sus volantes en los hombros y su escote cruzado le dan un toque diferente a la vez que elegante al diseño.",
+        measurements: ""
+      },
+      {
+        id: "siena-burdeos-gris",
+        name: "Bolso Siena Burdeos y Gris",
+        price: 12.99,
+        images: [
+          "Bolso burdeos y gris.jpg",
+          "IMG_018.jpeg"
+        ],
+        description:
+          "Precioso bolso de mano con dos opciones de cadena: una cadenita dorada, que se puede quitar y poner, y otra para llevarlo al hombro, también extraíble. Su diseño versátil y elegante lo convierte en el complemento perfecto para toda la temporada.",
+        measurements:
+          "Medidas:\nLargo: 32 cm\nAlto: 21 cm\nAncho de la base: 12 cm"
+      },
+      {
+        id: "siena-verde-naranja",
+        name: "Bolso Siena Verde y Naranja",
+        price: 12.99,
+        images: [
+          "Bolsa verde y naranja.jpg",
+          "Modelo verde naranja.jpg"
+        ],
+        description:
+          "Precioso bolso de mano con dos opciones de cadena: una cadenita dorada, que se puede quitar y poner, y otra para llevarlo al hombro, también extraíble. Su diseño versátil y elegante lo convierte en el complemento perfecto para toda la temporada.",
+        measurements:
+          "Medidas:\nLargo: 32 cm\nAlto: 21 cm\nAncho de la base: 12 cm"
+      },
+      {
+        id: "siena-morado-blanco",
+        name: "Bolso Siena Morado y Blanco",
+        price: 12.99,
+        images: [
+          "Bolsa blanca y púrpura.jpg",
+          "Modelo burdeos verde.jpg"
+        ],
+        description:
+          "Precioso bolso de mano con dos opciones de cadena: una cadenita dorada, que se puede quitar y poner, y otra para llevarlo al hombro, también extraíble. Su diseño versátil y elegante lo convierte en el complemento perfecto para toda la temporada.",
+        measurements:
+          "Medidas:\nLargo: 32 cm\nAlto: 21 cm\nAncho de la base: 12 cm"
+      }
+    ];
+
+    const homeView = document.getElementById("home-view");
+    const detailView = document.getElementById("detail-view");
+    const productsGrid = document.getElementById("products-grid");
+
+    const detailImage = document.getElementById("detail-image");
+    const detailTitle = document.getElementById("detail-title");
+    const detailPrice = document.getElementById("detail-price");
+    const detailDescription = document.getElementById("detail-description");
+    const detailMeasurements = document.getElementById("detail-measurements");
+    const thumbnails = document.getElementById("thumbnails");
+    const galleryCount = document.getElementById("gallery-count");
+    const whatsappOrder = document.getElementById("whatsapp-order");
+
+    let currentProduct = null;
+    let currentImageIndex = 0;
+
+    const whatsappNumber = "34658894201";
+
+    function formatPrice(price) {
+      return price.toLocaleString("es-ES", {
+        style: "currency",
+        currency: "EUR"
+      });
+    }
+
+    function makeImage(src, alt, className) {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = alt;
+      img.className = className || "";
+      img.loading = "lazy";
+
+      img.addEventListener("error", function () {
+        img.alt = "No se ha encontrado la imagen: " + src;
+        img.title = "Comprueba que el nombre del archivo coincida con el de GitHub: " + src;
+      });
+
+      return img;
+    }
+
+    function renderProducts() {
+      productsGrid.innerHTML = "";
+
+      products.forEach(function (product) {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "product-card";
+        card.setAttribute("aria-label", "Ver " + product.name);
+
+        const image = makeImage(
+          product.images[0],
+          product.name,
+          "card-image"
+        );
+
+        const info = document.createElement("div");
+        info.className = "card-info";
+
+        const title = document.createElement("h3");
+        title.textContent = product.name;
+        info.appendChild(title);
+
+        if (product.price !== null) {
+          const price = document.createElement("p");
+          price.className = "price";
+          price.textContent = formatPrice(product.price);
+          info.appendChild(price);
+        }
+
+        const viewText = document.createElement("span");
+        viewText.className = "view-product";
+        viewText.textContent = "Ver producto";
+        info.appendChild(viewText);
+
+        card.appendChild(image);
+        card.appendChild(info);
+
+        card.addEventListener("click", function () {
+          openProduct(product.id);
+        });
+
+        productsGrid.appendChild(card);
+      });
+    }
+
+    function openProduct(productId) {
+      currentProduct = products.find(function (product) {
+        return product.id === productId;
+      });
+
+      if (!currentProduct) return;
+
+      currentImageIndex = 0;
+
+      homeView.style.display = "none";
+      detailView.style.display = "block";
+
+      detailTitle.textContent = currentProduct.name;
+      detailDescription.textContent = currentProduct.description;
+      detailMeasurements.textContent = currentProduct.measurements;
+
+      if (currentProduct.price !== null) {
+        detailPrice.textContent = formatPrice(currentProduct.price);
+        detailPrice.style.display = "block";
+      } else {
+        // La blusa Amara no muestra ningún precio ni texto alternativo.
+        detailPrice.textContent = "";
+        detailPrice.style.display = "none";
+      }
+
+      const message = "Hola, estoy interesada en " + currentProduct.name +
+        (currentProduct.price !== null
+          ? " (" + formatPrice(currentProduct.price) + ")"
+          : "") +
+        ". ¿Podéis darme información para hacer el pedido?";
+
+      whatsappOrder.href =
+        "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent(message);
+
+      renderGallery();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      history.pushState(
+        { productId: productId },
+        "",
+        "#producto-" + productId
+      );
+    }
+
+    function renderGallery() {
+      if (!currentProduct) return;
+
+      const images = currentProduct.images;
+      const imageSrc = images[currentImageIndex];
+
+      detailImage.src = imageSrc;
+      detailImage.alt = currentProduct.name + " - foto " +
+        (currentImageIndex + 1);
+
+      galleryCount.textContent =
+        "Foto " + (currentImageIndex + 1) + " de " + images.length;
+
+      thumbnails.innerHTML = "";
+
+      images.forEach(function (src, index) {
+        const thumb = document.createElement("button");
+        thumb.type = "button";
+        thumb.className =
+          "thumbnail" + (index === currentImageIndex ? " active" : "");
+        thumb.setAttribute("aria-label", "Ver foto " + (index + 1));
+
+        const img = makeImage(
+          src,
+          currentProduct.name + " - miniatura " + (index + 1),
+          ""
+        );
+
+        thumb.appendChild(img);
+
+        thumb.addEventListener("click", function () {
+          currentImageIndex = index;
+          renderGallery();
+        });
+
+        thumbnails.appendChild(thumb);
+      });
+
+      const hasMultipleImages = images.length > 1;
+      document.getElementById("prev-image").style.display =
+        hasMultipleImages ? "block" : "none";
+      document.getElementById("next-image").style.display =
+        hasMultipleImages ? "block" : "none";
+      thumbnails.style.display = hasMultipleImages ? "flex" : "none";
+      galleryCount.style.display = hasMultipleImages ? "block" : "none";
+    }
+
+    function returnToCollection() {
+      detailView.style.display = "none";
+      homeView.style.display = "block";
+      currentProduct = null;
+
+      history.pushState({}, "", "#coleccion");
+      document.getElementById("coleccion").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+    document.getElementById("prev-image").addEventListener("click", function () {
+      if (!currentProduct) return;
+
+      currentImageIndex =
+        (currentImageIndex - 1 + currentProduct.images.length) %
+        currentProduct.images.length;
+
+      renderGallery();
+    });
+
+    document.getElementById("next-image").addEventListener("click", function () {
+      if (!currentProduct) return;
+
+      currentImageIndex =
+        (currentImageIndex + 1) % currentProduct.images.length;
+
+      renderGallery();
+    });
+
+    document.getElementById("back-button").addEventListener(
+      "click",
+      returnToCollection
+    );
+
+    document.getElementById("continue-shopping").addEventListener(
+      "click",
+      returnToCollection
+    );
+
+    document.getElementById("home-link").addEventListener("click", function (event) {
+      event.preventDefault();
+      detailView.style.display = "none";
+      homeView.style.display = "block";
+      currentProduct = null;
+      history.pushState({}, "", "#inicio");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    document.getElementById("collection-link").addEventListener("click", function (event) {
+      event.preventDefault();
+      detailView.style.display = "none";
+      homeView.style.display = "block";
+      currentProduct = null;
+      history.pushState({}, "", "#coleccion");
+      document.getElementById("coleccion").scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+
+    document.getElementById("contact-link").addEventListener("click", function (event) {
+      event.preventDefault();
+      detailView.style.display = "none";
+      homeView.style.display = "block";
+      currentProduct = null;
+      history.pushState({}, "", "#contacto");
+      document.getElementById("contacto").scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+
+    window.addEventListener("popstate", function () {
+      const productId = window.location.hash.startsWith("#producto-")
+        ? window.location.hash.replace("#producto-", "")
+        : null;
+
+      if (productId) {
+        openProductWithoutHistory(productId);
+      } else {
+        detailView.style.display = "none";
+        homeView.style.display = "block";
+        currentProduct = null;
+
+        if (window.location.hash === "#contacto") {
+          document.getElementById("contacto").scrollIntoView();
+        } else if (window.location.hash === "#coleccion") {
+          document.getElementById("coleccion").scrollIntoView();
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }
+    });
+
+    function openProductWithoutHistory(productId) {
+      currentProduct = products.find(function (product) {
+        return product.id === productId;
+      });
+
+      if (!currentProduct) {
+        detailView.style.display = "none";
+        homeView.style.display = "block";
+        return;
+      }
+
+      currentImageIndex = 0;
+      homeView.style.display = "none";
+      detailView.style.display = "block";
+
+      detailTitle.textContent = currentProduct.name;
+      detailDescription.textContent = currentProduct.description;
+      detailMeasurements.textContent = currentProduct.measurements;
+
+      if (currentProduct.price !== null) {
+        detailPrice.textContent = formatPrice(currentProduct.price);
+        detailPrice.style.display = "block";
+      } else {
+        detailPrice.textContent = "";
+        detailPrice.style.display = "none";
+      }
+
+      const message = "Hola, estoy interesada en " + currentProduct.name +
+        (currentProduct.price !== null
+          ? " (" + formatPrice(currentProduct.price) + ")"
+          : "") +
+        ". ¿Podéis darme información para hacer el pedido?";
+
+      whatsappOrder.href =
+        "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent(message);
+
+      renderGallery();
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    renderProducts();
+
+    // Permite abrir directamente un producto si se visita su enlace.
+    if (window.location.hash.startsWith("#producto-")) {
+      const initialProductId =
+        window.location.hash.replace("#producto-", "");
+      openProductWithoutHistory(initialProductId);
+    }
+  </script>
 </body>
 </html>
-
