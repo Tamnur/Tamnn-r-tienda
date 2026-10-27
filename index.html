@@ -853,6 +853,14 @@
         title.textContent = product.name;
         info.appendChild(title);
 
+        if (product.stock === 0) {
+          
+const badge = document.createElement("span");
+badge.className = "stock-badge agotado";
+badge.textContent = "AGOTADO";
+info.appendChild(badge);
+}
+
         if (product.price !== null) {
           const price = document.createElement("p");
           price.className = "price";
