@@ -1,1475 +1,1879 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f6f0e8">
-  <title>TAMNÜR | Moda y complementos</title>
-
-  <style>
-    :root {
-      --fondo: #faf7f2;
-      --crema: #eee3d5;
-      --marron: #5b4034;
-      --texto: #382a24;
-      --suave: #8c7567;
-      --blanco: #ffffff;
-      --borde: #e4d8ca;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--fondo);
-      color: var(--texto);
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .topbar {
-      background: var(--marron);
-      color: white;
-      text-align: center;
-      padding: 10px 12px;
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
-
-    header {
-      background: var(--fondo);
-      padding: 24px 16px 18px;
-      text-align: center;
-      border-bottom: 1px solid var(--borde);
-    }
-
-    .logo {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(34px, 8vw, 48px);
-      letter-spacing: 8px;
-      font-weight: normal;
-    }
-
-    .tagline {
-      color: var(--suave);
-      font-size: 11px;
-      letter-spacing: 3px;
-      margin: 10px 0 0;
-      text-transform: uppercase;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 22px;
-      padding: 15px 12px;
-      border-bottom: 1px solid var(--borde);
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      color: var(--texto);
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      color: var(--suave);
-    }
-
-    .hero {
-      padding: 55px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #eee2d4, #faf7f2 55%, #e5d5c5);
-    }
-
-    .hero h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(29px, 6vw, 43px);
-      font-weight: normal;
-      margin: 0 0 15px;
-    }
-
-    .hero p {
-      color: #6c5548;
-      font-size: 14px;
-      line-height: 1.8;
-      max-width: 480px;
-      margin: 0 auto 24px;
-    }
-
-    .button {
-      display: inline-block;
-      background: var(--marron);
-      color: white;
-      border: 1px solid var(--marron);
-      padding: 13px 22px;
-      text-decoration: none;
-      cursor: pointer;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-align: center;
-      transition: background 0.2s;
-    }
-
-    .button:hover {
-      background: #765849;
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--marron);
-    }
-
-    .button.secondary:hover {
-      background: var(--crema);
-    }
-
-    .section {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 48px 18px;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .section-heading h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
-      font-weight: normal;
-      margin: 0 0 10px;
-    }
-
-    .section-heading p {
-      color: var(--suave);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px 18px;
-    }
-
-    .product-card {
-      min-width: 0;
-      border: 1px solid var(--borde);
-      background: var(--blanco);
-      cursor: pointer;
-      text-align: left;
-      padding: 0;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 22px #5b403414;
-    }
-
-    .card-image {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      display: block;
-      background: var(--crema);
-    }
-
-    .card-info {
-      padding: 15px 12px 18px;
-      text-align: center;
-    }
-
-    .card-info h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 17px;
-      font-weight: normal;
-      margin: 0 0 10px;
-    }
-
-    .stock-badge {
-      display: inline-block;
-      margin: 0 0 10px;
-      padding: 6px 10px;
-      background: #f4e7df;
-      color: #704b3b;
-      font-size: 10px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .detail-stock {
-      display: none;
-      margin: -12px 0 22px;
-      color: #8a3f32;
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 0.3px;
-    }
-
-    .price {
-      font-size: 14px;
-      color: var(--marron);
-      font-weight: bold;
-      margin: 0;
-    }
-
-    .view-product {
-      display: inline-block;
-      margin-top: 13px;
-      color: var(--suave);
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    /* Ficha de producto */
-
-    #detail-view {
-      display: none;
-    }
-
-    .back-button {
-      background: transparent;
-      border: 0;
-      color: var(--marron);
-      padding: 10px 0;
-      margin-bottom: 25px;
-      cursor: pointer;
-      font-size: 13px;
-    }
-
-    .detail-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      gap: 42px;
-      align-items: start;
-    }
-
-    .gallery-main {
-      position: relative;
-      background: var(--crema);
-    }
-
-    .gallery-main img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: contain;
-      display: block;
-      background: var(--crema);
-    }
-
-    .gallery-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      border: 0;
-      border-radius: 50%;
-      width: 38px;
-      height: 38px;
-      background: #ffffffdf;
-      color: var(--marron);
-      cursor: pointer;
-      font-size: 23px;
-    }
-
-    .gallery-arrow.prev {
-      left: 10px;
-    }
-
-    .gallery-arrow.next {
-      right: 10px;
-    }
-
-    .gallery-count {
-      text-align: center;
-      font-size: 12px;
-      color: var(--suave);
-      margin: 10px 0;
-    }
-
-    .thumbnails {
-      display: flex;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .thumbnail {
-      width: 76px;
-      height: 90px;
-      padding: 0;
-      border: 1px solid var(--borde);
-      background: var(--crema);
-      cursor: pointer;
-      overflow: hidden;
-    }
-
-    .thumbnail.active {
-      border: 2px solid var(--marron);
-    }
-
-    .thumbnail img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .detail-info {
-      padding-top: 12px;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      color: var(--suave);
-      font-size: 11px;
-      letter-spacing: 2px;
-    }
-
-    .detail-info h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(27px, 4vw, 37px);
-      font-weight: normal;
-      margin: 12px 0;
-    }
-
-    .detail-price {
-      font-size: 20px;
-      font-weight: bold;
-      color: var(--marron);
-      margin: 0 0 24px;
-    }
-
-    .detail-description {
-      font-size: 14px;
-      line-height: 1.9;
-      white-space: pre-line;
-      color: #665349;
-    }
-
-    .measurements {
-      margin-top: 18px;
-      font-size: 13px;
-      line-height: 1.9;
-    }
-
-    .detail-actions {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .detail-actions .button {
-      width: 100%;
-    }
-
-    .shipping-note {
-      margin-top: 24px;
-      border-top: 1px solid var(--borde);
-      padding-top: 18px;
-      color: var(--suave);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    .info-strip {
-      background: var(--crema);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      text-align: center;
-      padding: 27px 10px;
-      gap: 15px;
-    }
-
-    .info-strip strong {
-      display: block;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 17px;
-      font-weight: normal;
-      margin-bottom: 7px;
-    }
-
-    .info-strip span {
-      font-size: 11px;
-      color: #705a4c;
-      line-height: 1.6;
-    }
-
-    footer {
-      background: #392820;
-      color: #f7eee5;
-      text-align: center;
-      padding: 35px 18px;
-    }
-
-    .footer-logo {
-      font-family: Georgia, "Times New Roman", serif;
-      letter-spacing: 6px;
-      font-size: 27px;
-      margin: 0 0 12px;
-    }
-
-    footer p {
-      font-size: 12px;
-      line-height: 1.9;
-      color: #e0d0c2;
-    }
-
-    footer a {
-      color: #fff;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-      font-size: 12px;
-    }
-
-    .footer-links a {
-      text-decoration: none;
-    }
-
-    @media (max-width: 760px) {
-      .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 17px 12px;
-      }
-
-      .card-info {
-        padding: 12px 7px 15px;
-      }
-
-      .card-info h3 {
-        font-size: 15px;
-      }
-
-      .detail-layout {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-
-      .detail-info {
-        padding-top: 0;
-      }
-
-      .section {
-        padding: 35px 14px;
-      }
-
-      .info-strip {
-        grid-template-columns: 1fr;
-        gap: 23px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f6f0e8">
+<title>TAMNÜR | Moda y complementos</title>
+
+<style>
+:root {
+  --fondo: #faf7f2;
+  --crema: #eee3d5;
+  --marron: #5b4034;
+  --texto: #382a24;
+  --suave: #8c7567;
+  --blanco: #ffffff;
+  --borde: #e4d8ca;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body.menu-open { overflow: hidden; }
+
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+
+.topbar {
+  background: var(--marron);
+  color: white;
+  text-align: center;
+  padding: 10px 12px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+header {
+  background: var(--fondo);
+  padding: 20px 16px;
+  border-bottom: 1px solid var(--borde);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.logo {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 8vw, 48px);
+  letter-spacing: 8px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.tagline {
+  color: var(--suave);
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin: 9px 0 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.header-menu-button {
+  justify-self: start;
+  border: 1px solid var(--borde);
+  background: transparent;
+  color: var(--marron);
+  width: 43px;
+  height: 43px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.header-space { justify-self: end; }
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding: 15px 12px;
+  border-bottom: 1px solid var(--borde);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+nav a {
+  color: var(--texto);
+  text-decoration: none;
+}
+
+nav a:hover { color: var(--suave); }
+
+/* MENÚ LATERAL */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: #00000070;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-menu {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  right: 0;
+  width: min(340px, 85%);
+  height: 100%;
+  background: var(--fondo);
+  padding: 25px 23px;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  box-shadow: -5px 0 25px #00000018;
+}
+
+.side-menu.active { transform: translateX(0); }
+
+.menu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--borde);
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+
+.menu-top h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: normal;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.close-menu {
+  background: transparent;
+  border: 0;
+  color: var(--marron);
+  font-size: 29px;
+  cursor: pointer;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-links a {
+  color: var(--texto);
+  text-decoration: none;
+  padding: 15px 4px;
+  border-bottom: 1px solid var(--borde);
+  font-size: 13px;
+  letter-spacing: 0.7px;
+}
+
+.menu-links a:hover { color: var(--suave); }
+
+.menu-caption {
+  color: var(--suave);
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin: 22px 4px 5px;
+  text-transform: uppercase;
+}
+
+/* PORTADA */
+
+.hero {
+  padding: 55px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #eee2d4, #faf7f2 55%, #e5d5c5);
+}
+
+.hero h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(29px, 6vw, 43px);
+  font-weight: normal;
+  margin: 0 0 15px;
+}
+
+.hero p {
+  color: #6c5548;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 480px;
+  margin: 0 auto 24px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--marron);
+  color: white;
+  border: 1px solid var(--marron);
+  padding: 13px 22px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.button:hover { background: #765849; }
+
+.button.secondary {
+  background: transparent;
+  color: var(--marron);
+}
+
+.button.secondary:hover { background: var(--crema); }
+
+/* SECCIONES Y PRODUCTOS */
+
+.section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 18px;
+  scroll-margin-top: 15px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-heading h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: normal;
+  margin: 0 0 10px;
+}
+
+.section-heading p {
+  color: var(--suave);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.category-section {
+  border-top: 1px solid var(--borde);
+}
+
+.category-heading {
+  text-align: center;
+  margin: 0 0 27px;
+}
+
+.category-heading h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: normal;
+  margin: 0 0 8px;
+}
+
+.category-heading p {
+  color: var(--suave);
+  font-size: 12px;
+  margin: 0;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 18px;
+}
+
+.product-card {
+  min-width: 0;
+  border: 1px solid var(--borde);
+  background: var(--blanco);
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px #5b403414;
+}
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  background: var(--crema);
+}
+
+.card-info {
+  padding: 15px 12px 18px;
+  text-align: center;
+}
+
+.card-info h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: normal;
+  margin: 0 0 10px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.stock-badge, .new-badge {
+  display: inline-block;
+  padding: 6px 9px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.stock-badge {
+  background: #f4e7df;
+  color: #704b3b;
+}
+
+.new-badge {
+  background: #eee3d5;
+  color: #5b4034;
+}
+
+.price {
+  font-size: 14px;
+  color: var(--marron);
+  font-weight: bold;
+  margin: 0;
+}
+
+.view-product {
+  display: inline-block;
+  margin-top: 13px;
+  color: var(--suave);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* FICHA DE PRODUCTO */
+
+#detail-view { display: none; }
+
+.back-button {
+  background: transparent;
+  border: 0;
+  color: var(--marron);
+  padding: 10px 0;
+  margin-bottom: 25px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 42px;
+  align-items: start;
+}
+
+.gallery-main {
+  position: relative;
+  background: var(--crema);
+}
+
+.gallery-main img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  display: block;
+  background: var(--crema);
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  background: #ffffffdf;
+  color: var(--marron);
+  cursor: pointer;
+  font-size: 23px;
+}
+
+.gallery-arrow.prev { left: 10px; }
+.gallery-arrow.next { right: 10px; }
+
+.gallery-count {
+  text-align: center;
+  font-size: 12px;
+  color: var(--suave);
+  margin: 10px 0;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.thumbnail {
+  width: 76px;
+  height: 90px;
+  padding: 0;
+  border: 1px solid var(--borde);
+  background: var(--crema);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.thumbnail.active { border: 2px solid var(--marron); }
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.detail-info { padding-top: 12px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  color: var(--suave);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.detail-info h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(27px, 4vw, 37px);
+  font-weight: normal;
+  margin: 12px 0;
+}
+
+.detail-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--marron);
+  margin: 0 0 24px;
+}
+
+.detail-description {
+  font-size: 14px;
+  line-height: 1.9;
+  white-space: pre-line;
+  color: #665349;
+}
+
+.measurements {
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.detail-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 15px 0;
+}
+
+.detail-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.detail-actions .button { width: 100%; }
+
+.shipping-note {
+  margin-top: 24px;
+  border-top: 1px solid var(--borde);
+  padding-top: 18px;
+  color: var(--suave);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* PIE */
+
+.info-strip {
+  background: var(--crema);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  padding: 27px 10px;
+  gap: 15px;
+}
+
+.info-strip strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: normal;
+  margin-bottom: 7px;
+}
+
+.info-strip span {
+  font-size: 11px;
+  color: #705a4c;
+  line-height: 1.6;
+}
+
+footer {
+  background: #392820;
+  color: #f7eee5;
+  text-align: center;
+  padding: 35px 18px;
+}
+
+.footer-logo {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 6px;
+  font-size: 27px;
+  margin: 0 0 12px;
+}
+
+footer p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #e0d0c2;
+}
+
+footer a { color: #fff; }
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.footer-links a { text-decoration: none; }
+
+@media (max-width: 760px) {
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px 12px;
+  }
+
+  .card-info { padding: 12px 7px 15px; }
+  .card-info h3 { font-size: 15px; }
+
+  .detail-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .detail-info { padding-top: 0; }
+  .section { padding: 35px 14px; }
+
+  .info-strip {
+    grid-template-columns: 1fr;
+    gap: 23px;
+  }
+
+  nav { gap: 15px; }
+}
+
+@media (min-width: 761px) {
+  .header-menu-button { width: 46px; }
+}
+</style>
 </head>
 
 <body>
-  <div class="topbar">
-    ENVÍOS EN 24/48 HORAS · TIENDA EN CÁCERES
-  </div>
 
-  <header>
+<div class="topbar">
+  ENVÍOS EN 24/48 HORAS · TIENDA EN CÁCERES
+</div>
+
+<header>
+  <button class="header-menu-button" id="open-menu"
+    type="button" aria-label="Abrir menú">☰</button>
+
+  <div>
     <h1 class="logo">TAMNÜR</h1>
     <p class="tagline">Moda y complementos</p>
-  </header>
+  </div>
 
-  <nav>
-    <a href="#inicio" id="home-link">INICIO</a>
-    <a href="#coleccion" id="collection-link">COLECCIÓN</a>
-    <a href="#contacto" id="contact-link">CONTACTO</a>
-  </nav>
+  <div class="header-space"></div>
+</header>
 
-  <main id="home-view">
-    <section class="hero" id="inicio">
-      <h2>Tu estilo, tu esencia</h2>
-      <p>
-        Descubre nuestra selección de moda y complementos.
-        Piezas especiales para dar un toque único a cada look.
-      </p>
-      <a class="button" href="#coleccion">DESCUBRIR COLECCIÓN</a>
-    </section>
+<nav>
+  <a href="#inicio" id="home-link">INICIO</a>
+  <a href="#coleccion" id="collection-link">COLECCIÓN</a>
+  <a href="#contacto" id="contact-link">CONTACTO</a>
+</nav>
 
-    <section class="section" id="coleccion">
-      <div class="section-heading">
-        <h2>Nuestra colección</h2>
-        <p>Encuentra tus nuevos favoritos.</p>
-      </div>
-      <div class="products" id="products-grid"></div>
-    </section>
+<div class="menu-overlay" id="menu-overlay"></div>
 
-    <section class="info-strip">
-      <div>
-        <strong>📍 Cáceres</strong>
-        <span>Estamos en Cáceres</span>
-      </div>
-      <div>
-        <strong>📦 Envíos 24/48 h</strong>
-        <span>Enviamos tus pedidos</span>
-      </div>
-      <div>
-        <strong>♡ Atención personal</strong>
-        <span>Haz tu pedido por WhatsApp</span>
-      </div>
-    </section>
-  </main>
+<aside class="side-menu" id="side-menu">
+  <div class="menu-top">
+    <h2>TAMNÜR</h2>
+    <button class="close-menu" id="close-menu"
+      type="button" aria-label="Cerrar menú">×</button>
+  </div>
 
-  <main id="detail-view">
-    <section class="section">
-      <button class="back-button" id="back-button" type="button">
-        ← Volver a la colección
-      </button>
+  <div class="menu-links">
+    <a href="#inicio" data-target="inicio">Inicio</a>
+    <a href="#coleccion" data-target="coleccion">Toda la colección</a>
 
-      <div class="detail-layout">
-        <div class="gallery">
-          <div class="gallery-main">
-            <img id="detail-image" src="" alt="">
-            <button class="gallery-arrow prev" id="prev-image"
-              type="button" aria-label="Foto anterior">‹</button>
-            <button class="gallery-arrow next" id="next-image"
-              type="button" aria-label="Foto siguiente">›</button>
-          </div>
-          <p class="gallery-count" id="gallery-count"></p>
-          <div class="thumbnails" id="thumbnails"></div>
-        </div>
+    <p class="menu-caption">Comprar por categoría</p>
 
-        <div class="detail-info">
-          <p class="eyebrow">TAMNÜR · MODA Y COMPLEMENTOS</p>
-          <h2 id="detail-title"></h2>
-          <p class="detail-price" id="detail-price"></p>
-          <p class="detail-stock" id="detail-stock">¡Última unidad disponible!</p>
-          <div class="detail-description" id="detail-description"></div>
-          <div class="measurements" id="detail-measurements"></div>
+    <a href="#novedades" data-target="novedades">✦ Novedades</a>
+    <a href="#pantalones" data-target="pantalones">Pantalones</a>
+    <a href="#camisas" data-target="camisas">Camisas, blusas y chaquetas</a>
+    <a href="#jerseys" data-target="jerseys">Jerseys y sudaderas</a>
+    <a href="#conjuntos" data-target="conjuntos">Conjuntos</a>
+    <a href="#bolsos" data-target="bolsos">Bolsos y monederos</a>
+    <a href="#complementos" data-target="complementos">Complementos</a>
 
-          <div class="detail-actions">
-            <a class="button" id="whatsapp-order" href="#" target="_blank"
-              rel="noopener noreferrer">PEDIR POR WHATSAPP</a>
-            <button class="button secondary" id="continue-shopping"
-              type="button">SEGUIR VIENDO PRODUCTOS</button>
-          </div>
+    <p class="menu-caption">Contacto</p>
+    <a href="#contacto" data-target="contacto">Contacto y pedidos</a>
+  </div>
+</aside>
 
-          <div class="shipping-note">
-            Envíos en 24/48 horas.<br>
-            Tienda en Cáceres.<br>
-            Para realizar tu pedido, pulsa el botón de WhatsApp.
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<main id="home-view">
 
-  <footer id="contacto">
-    <p class="footer-logo">TAMNÜR</p>
-    <p>Moda y complementos · Cáceres</p>
-    <p>Envíos en 24/48 horas</p>
+  <section class="hero" id="inicio">
+    <h2>Tu estilo, tu esencia</h2>
     <p>
-      WhatsApp:
-      <a href="https://wa.me/34658894201" target="_blank"
-        rel="noopener noreferrer">658 894 201</a>
-      ·
-      <a href="https://wa.me/34600459743" target="_blank"
-        rel="noopener noreferrer">600 459 743</a>
+      Descubre nuestra selección de moda y complementos.
+      Piezas especiales para dar un toque único a cada look.
     </p>
+    <a class="button" href="#coleccion" id="discover-button">
+      DESCUBRIR COLECCIÓN
+    </a>
+  </section>
 
-    <div class="footer-links">
-      <a href="https://www.instagram.com/tamnur_0/"
-        target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://wa.me/34658894201"
-        target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      <a href="https://wa.me/34600459743"
-        target="_blank" rel="noopener noreferrer">WhatsApp alternativo</a>
+  <section class="section" id="coleccion">
+    <div class="section-heading">
+      <h2>Nuestra colección</h2>
+      <p>Encuentra tus nuevos favoritos.</p>
     </div>
 
-    <p>© <span id="year"></span> TAMNÜR. Todos los derechos reservados.</p>
-  </footer>
+    <div id="catalog-sections"></div>
+  </section>
 
-  <script>
-    /*
-      IMPORTANTE:
-      Los nombres de las imágenes deben coincidir EXACTAMENTE
-      con los archivos que hayas subido a GitHub.
-    */
+  <section class="info-strip">
+    <div>
+      <strong>📍 Cáceres</strong>
+      <span>Estamos en Cáceres</span>
+    </div>
+    <div>
+      <strong>📦 Envíos 24/48 h</strong>
+      <span>Enviamos tus pedidos</span>
+    </div>
+    <div>
+      <strong>♡ Atención personal</strong>
+      <span>Haz tu pedido por WhatsApp</span>
+    </div>
+  </section>
 
-    const products = [
-      {
-  id: "pantalon-rayas-nv",
-  name: "Pantalón de rayas",
-  price: 29.00,
-  images: ["pantrayas (NV).jpg"],
-  description: "Pantalón de rayas con un diseño elegante y versátil, perfecto para crear conjuntos con estilo. Ideal para combinar con blusas y camisetas básicas.",
-  measurements: ""
-},
-{
-  id: "sudadera-perro-lucky",
-  name: "Sudadera Perro Lucky",
-  price: 14.00,
-  images: ["suda perro (NV).JPG"],
-  description: "Sudadera con estampado de perro Lucky, ideal para conseguir un look casual, cómodo y con personalidad. Perfecta para tus conjuntos del día a día.",
-  measurements: ""
-},
-{
-  id: "pantalon-verde-bombacho",
-  name: "Pantalón verde bombacho",
-  price: 17.99,
-  images: ["pantbombverde (NV).jpg"],
-  description: "Pantalón bombacho en color verde, una prenda cómoda y con estilo que aporta un toque diferente a cualquier conjunto.",
-  measurements: ""
-},
-{
-  id: "sudadera-tigre",
-  name: "Sudadera Tigre",
-  price: 14.00,
-  images: ["sudadtigre (NV).jpg"],
-  description: "Sudadera con estampado de tigre, perfecta para dar un toque atrevido y original a tus looks informales.",
-  measurements: ""
-},
-{
-  id: "pantalon-palazzo-burdeos",
-  name: "Pantalón Palazzo Burdeos",
-  price: 17.99,
-  images: ["pantalonburdeos (NV).jpg"],
-  description: "Pantalón palazzo en color burdeos, con una caída elegante y un diseño ideal para estilizar tus conjuntos. Disponible hasta la talla 42.",
-  measurements: "Hasta la talla 42"
-},
-{
-  id: "camisa-estampada-burdeos",
-  name: "Camisa Estampada Burdeos",
-  price: 22.99,
-  images: ["camisaflores(NV).jpg"],
-  description: "Camisa estampada en tonos burdeos con un bonito volante que aporta movimiento y elegancia. Ideal para dar un toque especial a tus conjuntos.",
-  measurements: ""
-},
-{
-  id: "camisa-cuadros-volante",
-  name: "Camisa de Cuadros con Volante",
-  price: 22.99,
-  images: ["CAMISACUADROS(NV).JPG"],
-  description: "Camisa de cuadros de franela con volante, perfecta para los días de entretiempo y para crear looks cómodos con un toque elegante.",
-  measurements: "Talla única, hasta la 42"
-},
-{
-  id: "chandal-licra-negro",
-  name: "Chándal de Licra Negro",
-  price: 19.90,
-  images: ["chandalnegro (NV).PNG"],
-  description: "Chándal negro de licra, ideal para disfrutar de la comodidad sin renunciar al estilo. Incluye camiseta interior para completar el conjunto.",
-  measurements: ""
-},
-{
-  id: "chandal-licra-marron-claro",
-  name: "Chándal de Licra Marrón Claro",
-  price: 19.90,
-  images: ["chandalicra (NV).PNG"],
-  description: "Chándal de licra en color marrón claro, una opción versátil y cómoda para tus looks diarios. Incluye camiseta interior.",
-  measurements: ""
-},
-{
-  id: "camiseta-velvet-teja",
-  name: "Camiseta Velvet Fruncida Teja",
-  price: 12.99,
-  images: ["fruncida teja (NV).PNG"],
-  description: "Camiseta Velvet en color teja con detalles fruncidos que realzan su diseño. Una prenda femenina y versátil, perfecta para combinar con pantalones y faldas.",
-  measurements: ""
-},
-{
-  id: "pantalon-pana-beige",
-  name: "Pantalón de Pana Beige",
-  price: 29.99,
-  images: ["pant pana beige (NV).jpg"],
-  description: "Pantalón de pana en color beige, ideal para crear conjuntos elegantes y atemporales. Incluye cinturón y está disponible hasta la talla 42.",
-  measurements: "Hasta la talla 42. Cinturón incluido"
-},
-{
-  id: "pantalon-pana-marron",
-  name: "Pantalón de Pana Marrón",
-  price: 29.99,
-  images: ["PANTPANAMARRON(NV).JPG"],
-  description: "Pantalón de pana en color marrón, perfecto para los looks de temporada. Su diseño es fácil de combinar e incluye cinturón. Disponible hasta la talla 42.",
-  measurements: "Hasta la talla 42. Cinturón incluido"
-},
-{
-        id: "amara",
-        name: "Blusa Amara",
-        price: 21.90,
-        images: [
-          "IMG_0006.webp"
-        ],
-        description:
-          "Dale un toque especial a tus looks con esta preciosa blusa en color burdeos. Su tonalidad elegante y femenina la convierte en una prenda ideal para crear conjuntos con personalidad, tanto para ocasiones especiales como para tus planes de cada día. Un básico con encanto que no puede faltar en tu armario.",
-        measurements: ""
-      },
-      {
-        id: "vera",
-        name: "Blusa Vera",
-        price: 18,
-        stock: 0,
-        images: [
-          "IMG_0030.png"
-        ],
-        description:
-          "Blusa ideal, con un estilo súper romántico, en estampado de claveles por todo su diseño. Su manga abullonada junto a sus volantes en los hombros y su escote cruzado le dan un toque diferente a la vez que elegante al diseño.",
-        measurements: ""
-      },
-      {
-        id: "siena-burdeos-gris",
-        name: "Bolso Siena Burdeos y Gris",
-        price: 12.99,
-        stock: 0,
-        images: [
-          "Bolso burdeos y gris.jpg",
-          "IMG_0018.jpeg"
-        ],
-        description:
-          "Precioso bolso de mano con dos opciones de cadena: una cadenita dorada, que se puede quitar y poner, y otra para llevarlo al hombro, también extraíble. Su diseño versátil y elegante lo convierte en el complemento perfecto para toda la temporada.",
-        measurements:
-          "Medidas:\nLargo: 32 cm\nAlto: 21 cm\nAncho de la base: 12 cm"
-      },
-      {
-        id: "siena-verde-naranja",
-        name: "Bolso Siena Verde y Naranja",
-        price: 12.99,
-        images: [
-          "Bolso verde y naranja.jpg",
-          "Modelo verde naranja.jpg"
-        ],
-        description:
-          "Precioso bolso de mano con dos opciones de cadena: una cadenita dorada, que se puede quitar y poner, y otra para llevarlo al hombro, también extraíble. Su diseño versátil y elegante lo convierte en el complemento perfecto para toda la temporada.",
-        measurements:
-          "Medidas:\nLargo: 32 cm\nAlto: 21 cm\nAncho de la base: 12 cm"
-      },
-      {
-        id: "siena-morado-blanco",
-        name: "Bolso Siena Morado y Blanco",
-        price: 12.99,
-        stock: 1,
-        images: [
-          "Bolso blanco y morado.jpg",
-          "modelo blanco y morado.jpg"
-        ],
-        description:
-          "Precioso bolso de mano con dos opciones de cadena: una cadenita dorada, que se puede quitar y poner, y otra para llevarlo al hombro, también extraíble. Su diseño versátil y elegante lo convierte en el complemento perfecto para toda la temporada.",
-        measurements:
-          "Medidas:\nLargo: 32 cm\nAlto: 21 cm\nAncho de la base: 12 cm"
-      },
-      
-      {
-        id: "camiseta-velvet burdeod",
-        name: "Camiseta Velvet Burdeos",
-        price: 12.99,
-        images: [
-          "camiseta burdeos.jpg"
-        ],
-        description:
-          "Camiseta en color burdeos con un precioso diseño fruncido en los hombros, el pecho y el abdomen, que realza la silueta y aporta un toque femenino y sofisticado. Una prenda ideal para crear looks elegantes o darle un toque especial a tus conjuntos del día a día.",
-        measurements:
-          "Color: Burdeos, negra y verde \nTalla: Única"
-      },
-       {
-        id: "camiseta-velvet verde",
-        name: "Camiseta Velvet Verde",
-        price: 12.99,
-        stock: 0,
-        images: [
-          "velvetverde.jpg"
-        ],
-        description:
-          "Camiseta en color verde con un precioso diseño fruncido en los hombros, el pecho y el abdomen, que realza la silueta y aporta un toque femenino y sofisticado. Una prenda ideal para crear looks elegantes o darle un toque especial a tus conjuntos del día a día.",
-        measurements:
-          "Color: Verde, burdeos y negra \nTalla: Única"
-      },
-       {
-        id: "camiseta-velvet Negra",
-        name: "Camiseta Velvet Negra",
-        price: 12.99,
-        stock: 0,
-        images: [
-          "velvetnegra.jpg"
-        ],
-        description:
-          "Camiseta en color negro con un precioso diseño fruncido en los hombros, el pecho y el abdomen, que realza la silueta y aporta un toque femenino y sofisticado. Una prenda ideal para crear looks elegantes o darle un toque especial a tus conjuntos del día a día.",
-        measurements:
-          "Color: Negro, verde y burdeos \nTalla: Única"
-      },
-      {
-        id: "pantalon-verona",
-        name: "Pantalón Verona",
-        price: 22.99,
-        stock: 0,
-        images: [
-          "Pantalonverona2.PNG"
-        ],
-        description:
-          "Precioso pantalón bombacho en color gris plomo con estampado de rombos en burdeos, perfecto para darle un toque elegante y diferente a tus looks. Su diseño con bajo bombacho y lazada delantera en la cintura aporta un estilo original y favorecedor. Además, cuenta con goma elástica en la parte trasera de la cintura para adaptarse cómodamente a la silueta.",
-        measurements:
-          "Colores: Gris plomo y burdeos\nTalla única: se adapta de la 34 a la 40"
-      },
-      {
-        id: "chaqueta-antelina",
-        name: "Chaqueta Antelina",
-        price: 22,
-        images: ["chaquetaantelina.JPG"],
-        description: "Chaqueta de antelina marrón con tachuelas de estrella y flecos por la espalda.",
-        measurements: "Tallas: S, M y L"
-      },
-      {
-        id: "blusa-flower",
-        name: "Blusa Flower",
-        price: 14.90,
-        stock: 0,
-        images: ["blusaflower.JPG"],
-        description: "Blusa preciosa abotonada, con nido de abeja en el pecho y las mangas. Es suelta en la parte baja, tiene un pequeño volante en las mangas y hombros abullonados.",
-        measurements: "Talla: T/U"
-      },
-      {
-        id: "blusa-pink",
-        name: "Blusa Pink",
-        price: 19.90,
-        images: ["blusapink.PNG", "blusarosa2.JPG"],
-        description: "Preciosa blusa rosa palo, abotonada y con volantes que cubren los botones desde el cuello hasta el abdomen. Tiene los hombros abullonados y las mangas fruncidas con un volante al final.",
-        measurements: "Talla: T/U"
-      },
-      {
-        id: "blusa-vicky",
-        name: "Blusa Vicky",
-        price: 14.90,
-        stock: 0,
-        images: ["blusa Nora.PNG"],
-        description: "Blusa marrón de cuadritos con volantes rematados en negro, tanto en la parte alta del pecho como en las mangas. Ideal para toda la temporada.",
-        measurements: "Talla: T/U"
-      },
-      {
-        id: "camisa-bordada",
-        name: "Camisa Bordada",
-        price: 21.90,
-        images: ["blusabordada2.jpg"],
-        description: "Preciosa blusa blanca con detalles bordados en distintos colores y botones que recorren el pecho, el abdomen y el final de las mangas.",
-        measurements: "Talla: T/U"
-      },
-      {
-  id: "pantalon-recto-inspiracion-levis",
-  name: "Pantalón Recto Inspiración LEVI'S",
-  price: 21.90,
-  images: [
-    "pantalonrecto1.jpg",
-    "pantalonrecto2.jpg",
-    "pantalonrecto3.jpg"
-],
-  description:
-    "Pantalón vaquero de inspiración LEVI'S con corte recto, tejido elástico y muy cómodo. Disponible en dos tonos: vaquero claro y vaquero oscuro. Un básico ideal para combinar con tus looks de diario.",
-  measurements:
-    "Colores: Vaquero claro y vaquero oscuro\nTallas: hasta la 44\nTejido: Elástico"
-},
-{
-  id: "blusa-lola",
-  name: "Blusa Lola",
-  price: 21.90,
-  stock: 0,
-  images: [
-    "Blusa Lola.PNG"
-  ],
-  description:
-    "Elegante blusa marrón con dos solapas de rayas marrones, fina lazada para anudar al cuello y mangas abullonadas con acabado ajustado en los puños. Una prenda especial para darle un toque sofisticado a tus looks.",
-  measurements:
-    "Color: Marrón\nTalla única"
-},
-{
-id: "jersey-chocolate",
-name: "Jersey de Punto Chocolate",
-price: 14,
-images: [
-"jerseypunto1.jpg",
-"jerseypunto2.jpg",
-"jerseypunto3.jpg"
-],
-description: "Jersey de punto en color marrón chocolate con volantes en los hombros y bordes blancos.",
-sizes: ["T/U"]
-},
+</main>
+
+<main id="detail-view">
+  <section class="section">
+    <button class="back-button" id="back-button" type="button">
+      ← Volver a la colección
+    </button>
+
+    <div class="detail-layout">
+      <div class="gallery">
+        <div class="gallery-main">
+          <img id="detail-image" src="" alt="">
+          <button class="gallery-arrow prev" id="prev-image"
+            type="button" aria-label="Foto anterior">‹</button>
+          <button class="gallery-arrow next" id="next-image"
+            type="button" aria-label="Foto siguiente">›</button>
+        </div>
+
+        <p class="gallery-count" id="gallery-count"></p>
+        <div class="thumbnails" id="thumbnails"></div>
+      </div>
+
+      <div class="detail-info">
+        <p class="eyebrow">TAMNÜR · MODA Y COMPLEMENTOS</p>
+        <h2 id="detail-title"></h2>
+        <div class="detail-status" id="detail-status"></div>
+        <p class="detail-price" id="detail-price"></p>
+        <div class="detail-description" id="detail-description"></div>
+        <div class="measurements" id="detail-measurements"></div>
+
+        <div class="detail-actions">
+          <a class="button" id="whatsapp-order" href="#" target="_blank"
+            rel="noopener noreferrer">PEDIR POR WHATSAPP</a>
+          <button class="button secondary" id="continue-shopping"
+            type="button">SEGUIR VIENDO PRODUCTOS</button>
+        </div>
+
+        <div class="shipping-note">
+          Envíos en 24/48 horas.<br>
+          Tienda en Cáceres.<br>
+          Para realizar tu pedido, pulsa el botón de WhatsApp.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <p class="footer-logo">TAMNÜR</p>
+  <p>Moda y complementos · Cáceres</p>
+  <p>Envíos en 24/48 horas</p>
+  <p>
+    WhatsApp:
+    <a href="https://wa.me/34658894201" target="_blank"
+      rel="noopener noreferrer">658 894 201</a>
+    ·
+    <a href="https://wa.me/34600459743" target="_blank"
+      rel="noopener noreferrer">600 459 743</a>
+  </p>
+
+  <div class="footer-links">
+    <a href="https://www.instagram.com/tamnur_0/"
+      target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://wa.me/34658894201"
+      target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="https://wa.me/34600459743"
+      target="_blank" rel="noopener noreferrer">WhatsApp alternativo</a>
+  </div>
+
+  <p>© <span id="year"></span> TAMNÜR. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+/*
+  Para marcar un producto como novedad:
+  isNew: true
+
+  Cuando quieras quitarle la etiqueta:
+  isNew: false
+
+  Para marcarlo como agotado:
+  stock: 0
+
+  Para indicar que queda una unidad:
+  stock: 1
+*/
+
+const products = [
+
   {
-id: "jersey-burdeos",
-name: "Jersey de Punto Burdeos",
-price: 14,
-images: [
-"jerseypuntoburdeos.jpg",
-"jerseypuntoburdeos2.jpg"
-],
-description: "Jersey de punto en color burdeos con volantes en los hombros y bordes blancos.",
-sizes: ["T/U"]
-},
-{
-id: "jersey-beige",
-name: "Jersey de Punto Beige",
-price: 14,
-images: [
-"jerseypuntobeige.jpg",
-"jerseybeige2.jpg"
-],
-description: "Jersey de punto en color beige con volantes en los hombros y bordes negros.",
-sizes: ["T/U"]
-},
-    {
-  id: "monedero-zebra-cabeza-dorada",
-  name: "Monedero Zebra con cabeza dorada",
-  price: 7.50,
-  images: ["Monederozebra1.jpg", "Monederozebra2.jpg"],
-  description: "Monedero con estampado zebra y elegante detalle de cabeza dorada.",
-  measurements: ""
-},
-{
-  id: "monedero-zebra-amarillo",
-  name: "Monedero Zebra amarillo con cabeza dorada",
-  price: 7.50,
-  images: ["monederozebraamarillo.jpg"],
-  description: "Monedero amarillo con estampado zebra y detalle de cabeza dorada.",
-  measurements: ""
-},
-{
-  id: "monedero-tachuelas-negro",
-  name: "Monedero de tachuelas negro",
-  price: 7.50,
-  images: ["tachuelanegro.jpg"],
-  description: "Monedero negro decorado con tachuelas.",
-  measurements: ""
-},
-{
-  id: "monedero-tachuelas-marron",
-  name: "Monedero de tachuelas marrón",
-  price: 7.50,
-  images: ["tachuelamarron.jpg"],
-  description: "Monedero marrón decorado con tachuelas.",
-  measurements: ""
-},
-{
-  id: "monedero-zebra-redondo",
-  name: "Monedero Zebra redondo",
-  price: 9.00,
-  images: ["zebraredondo.jpg"],
-  description: "Monedero redondo con estampado zebra.",
-  measurements: ""
-},
-{
-  id: "monedero-leopardo-redondo",
-  name: "Monedero Leopardo redondo",
-  price: 9.00,
-  images: ["leopardorendondo.jpg"],
-  description: "Monedero redondo con estampado de leopardo.",
-  measurements: ""
-},
-{
-  id: "monedero-leopardo-pequeno",
-  name: "Monedero Leopardo pequeño",
-  price: 9.00,
-  images: ["leopardopeque.jpg"],
-  description: "Monedero pequeño con estampado de leopardo.",
-  measurements: ""
-},
-{
-  id: "jersey-lazo",
-  name: "Jersey de lazo",
-  price: 14,
-  images: ["lazo.PNG"],
-  description: "Un jersey delicado y femenino con un bonito detalle de lazo, perfecto para aportar un toque especial a tus looks de diario.",
-  measurements: "Talla única"
-},
-{
-  id: "jersey-gris",
-  name: "Jersey gris",
-  price: 14,
-  images: ["jerseygris.jpg"],
-  description: "Jersey en color gris, ideal para crear looks cómodos, elegantes y fáciles de combinar. Un básico perfecto para tu armario.",
-  measurements: "Talla única"
-},
-{
-  id: "jersey-beige",
-  name: "Jersey beige",
-  price: 14,
-  images: ["jersey beige.jpg"],
-  description: "Jersey en tono beige, versátil y atemporal. Combínalo con tus vaqueros o pantalones favoritos para conseguir un look bonito y sofisticado.",
-  measurements: "Talla única"
-},
-{
-  id: "jersey-marron",
-  name: "Jersey marrón",
-  price: 14,
-  images: ["jerseymarron2.jpg"],
-  description: "Jersey en color marrón, perfecto para aportar calidez a tus conjuntos. Un tono elegante que combina fácilmente con colores neutros.",
-  measurements: "Talla única"
-},
-{
-  id: "perfume-mariposa",
-  name: "Perfume 💣🦋",
-  price: 10,
-  images: ["colonia1.PNG", "colonia2.JPG"],
-  description: "Un perfume ideal para acompañarte en tu día a día y completar tu rutina con un toque especial.",
-  measurements: ""
-},
-{
-  id: "chaqueta-antelina",
-  name: "Chaqueta de antelina",
-  price: 17.90,
-  images: ["camisaantelina.PNG"],
-  description: "Chaqueta de antelina con un acabado suave y elegante. Una prenda versátil, perfecta para completar tus looks y darles un toque sofisticado.",
-  measurements: "Tallas disponibles: S, M y L"
-},
-{
-  id: "chaquetilla-botones-beige",
-  name: "Chaquetilla de botones beige",
-  price: 22.90,
-  stock: 0,
-  images: ["chaquetilla.PNG"],
-  description: "Chaquetilla en color beige con cierre de botones. Una prenda elegante y fácil de combinar, ideal para crear conjuntos cuidados en cualquier ocasión.",
-  measurements: ""
-},
-{
-  id: "chaquetilla-botones-verde",
-  name: "Chaquetilla de botones verde",
-  price: 22.90,
-  images: ["chaquetillaverde.jpg"],
-  description: "Chaquetilla verde con botones, perfecta para dar un toque de color a tus conjuntos sin perder la elegancia. Ideal para combinar con prendas básicas.",
-  measurements: ""
-},
-{
-  id: "pantalon-balloon-negro",
-  name: "Pantalón Balloon negro",
-  price: 23.90,
-  images: ["balloomnegro1.jpg", "balloomnegro2.jpg", "balloomnegro3.jpg"],
-  description: "Pantalón estilo balloon en color negro, con una silueta moderna y cómoda. Una prenda versátil y fácil de combinar para cualquier ocasión.",
-  measurements: "Talla única"
-},
-{
-  id: "pantalon-balloon-verde",
-  name: "Pantalón Balloon verde",
-  price: 23.90,
-  images: ["balloomverde1.jpg", "balloomverde2.jpg", "balloomverde3.jpg"],
-  description: "Pantalón estilo balloon en color verde, ideal para aportar un toque diferente a tus conjuntos. Cómodo, actual y muy fácil de combinar.",
-  measurements: "Talla única"
-},
-{
-  id: "sudadera-bulldog",
-  name: "Sudadera Bulldog",
-  price: 14,
-  stock: 0,
-  images: ["sudaderabulldog.jpg"],
-  description: "Sudadera con estampado Bulldog, perfecta para conseguir un look casual y desenfadado. Cómoda y con mucha personalidad.",
-  measurements: "Talla única"
-},
-{
-  id: "sudadera-nyc",
-  name: "Sudadera NYC",
-  price: 14,
-  stock: 0,
-  images: ["Nyc.jpg"],
-  description: "Sudadera con estilo urbano y estampado NYC. Ideal para crear conjuntos cómodos y modernos para el día a día.",
-  measurements: "Talla única"
-},
-{
-  id: "sudadera-perro-love",
-  name: "Sudadera Perro Love",
-  price: 14,
-  stock: 0,
-  images: ["sudaderaloveperro.jpg"],
-  description: "Sudadera con un diseño divertido y original de Perro Love. Una prenda cómoda y especial para tus looks más informales.",
-  measurements: "Talla única"
-},
-{
-  id: "bolso-estampado",
-  name: "Bolso estampado",
-  price: null,
-  images: ["bolsodorado1.jpg", "bolsodorado2.jpg"],
-  description: "Bolso estampado con un diseño original y elegante, perfecto para dar un toque especial a tus conjuntos.",
-  measurements: ""
-},
-{
-  id: "bolso-shopper-troquelado",
-  name: "Bolso Shopper troquelado burdeos",
-  price: 22.99,
-  images: ["bolsoshopper.JPG"],
-  description: "Bolso shopper troquelado en color burdeos. Incluye asa de mano, correa para llevarlo al hombro y un bonito lazo decorativo a juego.",
-  measurements: ""
-},
-{
-  id: "fajin-borgona-crema",
-  name: "Fajín borgoña y crema",
-  price: 12.50,
-  images: ["fajinburdeos.JPG"],
-  description: "Fajín en tonos borgoña y crema con doble tira, ideal para complementar tus looks y aportar un toque elegante y original.",
-  measurements: ""
-},
-{
-  id: "fajin-crema-verde",
-  name: "Fajín crema y verde",
-  price: 12.50,
-  images: ["fajinverde.JPG"],
-  description: "Fajín en tonos crema y verde con doble tira, perfecto para dar un toque especial y diferente a tus conjuntos.",
-  measurements: ""
-},
-    ];
+    id: "pantalon-rayas-nv",
+    name: "Pantalón de rayas",
+    price: 29.00,
+    isNew: true,
+    images: ["pantrayas (NV).jpg"],
+    description: "Pantalón de rayas con un diseño elegante y versátil, perfecto para crear conjuntos con estilo. Ideal para combinar con blusas y camisetas básicas.",
+    measurements: ""
+  },
+  {
+    id: "sudadera-perro-lucky",
+    name: "Sudadera Perro Lucky",
+    price: 14.00,
+    isNew: true,
+    images: ["suda perro (NV).JPG"],
+    description: "Sudadera con estampado de perro Lucky, ideal para conseguir un look casual, cómodo y con personalidad. Perfecta para tus conjuntos del día a día.",
+    measurements: ""
+  },
+  {
+    id: "pantalon-verde-bombacho",
+    name: "Pantalón verde bombacho",
+    price: 17.99,
+    isNew: true,
+    images: ["pantbombverde (NV).jpg"],
+    description: "Pantalón bombacho en color verde, una prenda cómoda y con estilo que aporta un toque diferente a cualquier conjunto.",
+    measurements: ""
+  },
+  {
+    id: "sudadera-tigre",
+    name: "Sudadera Tigre",
+    price: 14.00,
+    isNew: true,
+    images: ["sudadtigre (NV).jpg"],
+    description: "Sudadera con estampado de tigre, perfecta para dar un toque atrevido y original a tus looks informales.",
+    measurements: ""
+  },
+  {
+    id: "pantalon-palazzo-burdeos",
+    name: "Pantalón Palazzo Burdeos",
+    price: 17.99,
+    isNew: true,
+    images: ["pantalonburdeos (NV).jpg"],
+    description: "Pantalón palazzo en color burdeos, con una caída elegante y un diseño ideal para estilizar tus conjuntos. Disponible hasta la talla 42.",
+    measurements: "Hasta la talla 42"
+  },
+  {
+    id: "camisa-estampada-burdeos",
+    name: "Camisa Estampada Burdeos",
+    price: 22.99,
+    isNew: true,
+    images: ["camisaflores(NV).jpg"],
+    description: "Camisa estampada en tonos burdeos con un bonito volante que aporta movimiento y elegancia. Ideal para dar un toque especial a tus conjuntos.",
+    measurements: ""
+  },
+  {
+    id: "camisa-cuadros-volante",
+    name: "Camisa de Cuadros con Volante",
+    price: 22.99,
+    isNew: true,
+    images: ["CAMISACUADROS(NV).JPG"],
+    description: "Camisa de cuadros de franela con volante, perfecta para los días de entretiempo y para crear looks cómodos con un toque elegante.",
+    measurements: "Talla única, hasta la 42"
+  },
+  {
+    id: "chandal-licra-negro",
+    name: "Chándal de Licra Negro",
+    price: 19.90,
+    isNew: true,
+    images: ["chandalnegro (NV).PNG"],
+    description: "Chándal negro de licra, ideal para disfrutar de la comodidad sin renunciar al estilo. Incluye camiseta interior para completar el conjunto.",
+    measurements: ""
+  },
+  {
+    id: "chandal-licra-marron-claro",
+    name: "Chándal de Licra Marrón Claro",
+    price: 19.90,
+    isNew: true,
+    images: ["chandalicra (NV).PNG"],
+    description: "Chándal de licra en color marrón claro, una opción versátil y cómoda para tus looks diarios. Incluye camiseta interior.",
+    measurements: ""
+  },
+  {
+    id: "camiseta-velvet-teja",
+    name: "Camiseta Velvet Fruncida Teja",
+    price: 12.99,
+    isNew: true,
+    images: ["fruncida teja (NV).PNG"],
+    description: "Camiseta Velvet en color teja con detalles fruncidos que realzan su diseño. Una prenda femenina y versátil, perfecta para combinar con pantalones y faldas.",
+    measurements: ""
+  },
+  {
+    id: "pantalon-pana-beige",
+    name: "Pantalón de Pana Beige",
+    price: 29.99,
+    isNew: true,
+    images: ["pant pana beige (NV).jpg"],
+    description: "Pantalón de pana en color beige, ideal para crear conjuntos elegantes y atemporales. Incluye cinturón y está disponible hasta la talla 42.",
+    measurements: "Hasta la talla 42. Cinturón incluido"
+  },
+  {
+    id: "pantalon-pana-marron",
+    name: "Pantalón de Pana Marrón",
+    price: 29.99,
+    isNew: true,
+    images: ["PANTPANAMARRON(NV).JPG"],
+    description: "Pantalón de pana en color marrón, perfecto para los looks de temporada. Su diseño es fácil de combinar e incluye cinturón. Disponible hasta la talla 42.",
+    measurements: "Hasta la talla 42. Cinturón incluido"
+  },
 
-    const homeView = document.getElementById("home-view");
-    const detailView = document.getElementById("detail-view");
-    const productsGrid = document.getElementById("products-grid");
+  {
+    id: "amara",
+    name: "Blusa Amara",
+    price: 21.90,
+    images: ["IMG_0006.webp"],
+    description: "Dale un toque especial a tus looks con esta preciosa blusa en color burdeos. Su tonalidad elegante y femenina la convierte en una prenda ideal para crear conjuntos con personalidad, tanto para ocasiones especiales como para tus planes de cada día. Un básico con encanto que no puede faltar en tu armario.",
+    measurements: ""
+  },
+  {
+    id: "vera",
+    name: "Blusa Vera",
+    price: 18,
+    stock: 0,
+    images: ["IMG_0030.png"],
+    description: "Blusa ideal, con un estilo súper romántico, en estampado de claveles por todo su diseño. Su manga abullonada junto a sus volantes en los hombros y su escote cruzado le dan un toque diferente a la vez que elegante al diseño.",
+    measurements: ""
+  },
+  {
+    id: "siena-burdeos-gris",
+    name: "Bolso Siena Burdeos y Gris",
+    price: 12.99,
+    stock: 0,
+    images: ["Bolso burdeos y gris.jpg", "IMG_0018.jpeg"],
+    description: "Precioso bolso de mano con dos opciones de cadena: una cadenita dorada, que se puede quitar y poner, y otra para llevarlo al hombro, también extraíble. Su diseño versátil y elegante lo convierte en el complemento perfecto para toda la temporada.",
+    measurements: "Medidas:\nLargo: 32 cm\nAlto: 21 cm\nAncho de la base: 12 cm"
+  },
+  {
+    id: "siena-verde-naranja",
+    name: "Bolso Siena Verde y Naranja",
+    price: 12.99,
+    images: ["Bolso verde y naranja.jpg", "Modelo verde naranja.jpg"],
+    description: "Precioso bolso de mano con dos opciones de cadena: una cadenita dorada, que se puede quitar y poner, y otra para llevarlo al hombro, también extraíble. Su diseño versátil y elegante lo convierte en el complemento perfecto para toda la temporada.",
+    measurements: "Medidas:\nLargo: 32 cm\nAlto: 21 cm\nAncho de la base: 12 cm"
+  },
+  {
+    id: "siena-morado-blanco",
+    name: "Bolso Siena Morado y Blanco",
+    price: 12.99,
+    stock: 1,
+    images: ["Bolso blanco y morado.jpg", "modelo blanco y morado.jpg"],
+    description: "Precioso bolso de mano con dos opciones de cadena: una cadenita dorada, que se puede quitar y poner, y otra para llevarlo al hombro, también extraíble. Su diseño versátil y elegante lo convierte en el complemento perfecto para toda la temporada.",
+    measurements: "Medidas:\nLargo: 32 cm\nAlto: 21 cm\nAncho de la base: 12 cm"
+  },
 
-    const detailImage = document.getElementById("detail-image");
-    const detailTitle = document.getElementById("detail-title");
-    const detailPrice = document.getElementById("detail-price");
-    const detailStock = document.getElementById("detail-stock");
-    const detailDescription = document.getElementById("detail-description");
-    const detailMeasurements = document.getElementById("detail-measurements");
-    const thumbnails = document.getElementById("thumbnails");
-    const galleryCount = document.getElementById("gallery-count");
-    const whatsappOrder = document.getElementById("whatsapp-order");
+  {
+    id: "camiseta-velvet-burdeos",
+    name: "Camiseta Velvet Burdeos",
+    price: 12.99,
+    images: ["camiseta burdeos.jpg"],
+    description: "Camiseta en color burdeos con un precioso diseño fruncido en los hombros, el pecho y el abdomen, que realza la silueta y aporta un toque femenino y sofisticado. Una prenda ideal para crear looks elegantes o darle un toque especial a tus conjuntos del día a día.",
+    measurements: "Color: Burdeos, negra y verde\nTalla: Única"
+  },
+  {
+    id: "camiseta-velvet-verde",
+    name: "Camiseta Velvet Verde",
+    price: 12.99,
+    stock: 0,
+    images: ["velvetverde.jpg"],
+    description: "Camiseta en color verde con un precioso diseño fruncido en los hombros, el pecho y el abdomen, que realza la silueta y aporta un toque femenino y sofisticado. Una prenda ideal para crear looks elegantes o darle un toque especial a tus conjuntos del día a día.",
+    measurements: "Color: Verde, burdeos y negra\nTalla: Única"
+  },
+  {
+    id: "camiseta-velvet-negra",
+    name: "Camiseta Velvet Negra",
+    price: 12.99,
+    stock: 0,
+    images: ["velvetnegra.jpg"],
+    description: "Camiseta en color negro con un precioso diseño fruncido en los hombros, el pecho y el abdomen, que realza la silueta y aporta un toque femenino y sofisticado. Una prenda ideal para crear looks elegantes o darle un toque especial a tus conjuntos del día a día.",
+    measurements: "Color: Negro, verde y burdeos\nTalla: Única"
+  },
+  {
+    id: "pantalon-verona",
+    name: "Pantalón Verona",
+    price: 22.99,
+    stock: 0,
+    images: ["Pantalonverona2.PNG"],
+    description: "Precioso pantalón bombacho en color gris plomo con estampado de rombos en burdeos, perfecto para darle un toque elegante y diferente a tus looks. Su diseño con bajo bombacho y lazada delantera en la cintura aporta un estilo original y favorecedor. Además, cuenta con goma elástica en la parte trasera de la cintura para adaptarse cómodamente a la silueta.",
+    measurements: "Colores: Gris plomo y burdeos\nTalla única: se adapta de la 34 a la 40"
+  },
+  {
+    id: "chaqueta-antelina",
+    name: "Chaqueta Antelina",
+    price: 22,
+    images: ["chaquetaantelina.JPG"],
+    description: "Chaqueta de antelina marrón con tachuelas de estrella y flecos por la espalda.",
+    measurements: "Tallas: S, M y L"
+  },
+  {
+    id: "blusa-flower",
+    name: "Blusa Flower",
+    price: 14.90,
+    stock: 0,
+    images: ["blusaflower.JPG"],
+    description: "Blusa preciosa abotonada, con nido de abeja en el pecho y las mangas. Es suelta en la parte baja, tiene un pequeño volante en las mangas y hombros abullonados.",
+    measurements: "Talla: T/U"
+  },
+  {
+    id: "blusa-pink",
+    name: "Blusa Pink",
+    price: 19.90,
+    images: ["blusapink.PNG", "blusarosa2.JPG"],
+    description: "Preciosa blusa rosa palo, abotonada y con volantes que cubren los botones desde el cuello hasta el abdomen. Tiene los hombros abullonados y las mangas fruncidas con un volante al final.",
+    measurements: "Talla: T/U"
+  },
+  {
+    id: "blusa-vicky",
+    name: "Blusa Vicky",
+    price: 14.90,
+    stock: 0,
+    images: ["blusa Nora.PNG"],
+    description: "Blusa marrón de cuadritos con volantes rematados en negro, tanto en la parte alta del pecho como en las mangas. Ideal para toda la temporada.",
+    measurements: "Talla: T/U"
+  },
+  {
+    id: "camisa-bordada",
+    name: "Camisa Bordada",
+    price: 21.90,
+    images: ["blusabordada2.jpg"],
+    description: "Preciosa blusa blanca con detalles bordados en distintos colores y botones que recorren el pecho, el abdomen y el final de las mangas.",
+    measurements: "Talla: T/U"
+  },
+  {
+    id: "pantalon-recto-inspiracion-levis",
+    name: "Pantalón Recto Inspiración LEVI'S",
+    price: 21.90,
+    images: ["pantalonrecto1.jpg", "pantalonrecto2.jpg", "pantalonrecto3.jpg"],
+    description: "Pantalón vaquero de inspiración LEVI'S con corte recto, tejido elástico y muy cómodo. Disponible en dos tonos: vaquero claro y vaquero oscuro. Un básico ideal para combinar con tus looks de diario.",
+    measurements: "Colores: Vaquero claro y vaquero oscuro\nTallas: hasta la 44\nTejido: Elástico"
+  },
+  {
+    id: "blusa-lola",
+    name: "Blusa Lola",
+    price: 21.90,
+    stock: 0,
+    images: ["Blusa Lola.PNG"],
+    description: "Elegante blusa marrón con dos solapas de rayas marrones, fina lazada para anudar al cuello y mangas abullonadas con acabado ajustado en los puños. Una prenda especial para darle un toque sofisticado a tus looks.",
+    measurements: "Color: Marrón\nTalla única"
+  },
 
-    let currentProduct = null;
-    let currentImageIndex = 0;
+  {
+    id: "jersey-chocolate",
+    name: "Jersey de Punto Chocolate",
+    price: 14,
+    images: ["jerseypunto1.jpg", "jerseypunto2.jpg", "jerseypunto3.jpg"],
+    description: "Jersey de punto en color marrón chocolate con volantes en los hombros y bordes blancos.",
+    measurements: "T/U"
+  },
+  {
+    id: "jersey-burdeos",
+    name: "Jersey de Punto Burdeos",
+    price: 14,
+    images: ["jerseypuntoburdeos.jpg", "jerseypuntoburdeos2.jpg"],
+    description: "Jersey de punto en color burdeos con volantes en los hombros y bordes blancos.",
+    measurements: "T/U"
+  },
+  {
+    id: "jersey-punto-beige",
+    name: "Jersey de Punto Beige",
+    price: 14,
+    images: ["jerseypuntobeige.jpg", "jerseybeige2.jpg"],
+    description: "Jersey de punto en color beige con volantes en los hombros y bordes negros.",
+    measurements: "T/U"
+  },
 
-    const whatsappNumber = "34658894201";
+  {
+    id: "monedero-zebra-cabeza-dorada",
+    name: "Monedero Zebra con cabeza dorada",
+    price: 7.50,
+    images: ["Monederozebra1.jpg", "Monederozebra2.jpg"],
+    description: "Monedero con estampado zebra y elegante detalle de cabeza dorada.",
+    measurements: ""
+  },
+  {
+    id: "monedero-zebra-amarillo",
+    name: "Monedero Zebra amarillo con cabeza dorada",
+    price: 7.50,
+    images: ["monederozebraamarillo.jpg"],
+    description: "Monedero amarillo con estampado zebra y detalle de cabeza dorada.",
+    measurements: ""
+  },
+  {
+    id: "monedero-tachuelas-negro",
+    name: "Monedero de tachuelas negro",
+    price: 7.50,
+    images: ["tachuelanegro.jpg"],
+    description: "Monedero negro decorado con tachuelas.",
+    measurements: ""
+  },
+  {
+    id: "monedero-tachuelas-marron",
+    name: "Monedero de tachuelas marrón",
+    price: 7.50,
+    images: ["tachuelamarron.jpg"],
+    description: "Monedero marrón decorado con tachuelas.",
+    measurements: ""
+  },
+  {
+    id: "monedero-zebra-redondo",
+    name: "Monedero Zebra redondo",
+    price: 9.00,
+    images: ["zebraredondo.jpg"],
+    description: "Monedero redondo con estampado zebra.",
+    measurements: ""
+  },
+  {
+    id: "monedero-leopardo-redondo",
+    name: "Monedero Leopardo redondo",
+    price: 9.00,
+    images: ["leopardorendondo.jpg"],
+    description: "Monedero redondo con estampado de leopardo.",
+    measurements: ""
+  },
+  {
+    id: "monedero-leopardo-pequeno",
+    name: "Monedero Leopardo pequeño",
+    price: 9.00,
+    images: ["leopardopeque.jpg"],
+    description: "Monedero pequeño con estampado de leopardo.",
+    measurements: ""
+  },
 
-    function formatPrice(price) {
-      return price.toLocaleString("es-ES", {
-        style: "currency",
-        currency: "EUR"
-      });
-    }
+  {
+    id: "jersey-lazo",
+    name: "Jersey de lazo",
+    price: 14,
+    images: ["lazo.PNG"],
+    description: "Un jersey delicado y femenino con un bonito detalle de lazo, perfecto para aportar un toque especial a tus looks de diario.",
+    measurements: "Talla única"
+  },
+  {
+    id: "jersey-gris",
+    name: "Jersey gris",
+    price: 14,
+    images: ["jerseygris.jpg"],
+    description: "Jersey en color gris, ideal para crear looks cómodos, elegantes y fáciles de combinar. Un básico perfecto para tu armario.",
+    measurements: "Talla única"
+  },
+  {
+    id: "jersey-beige-basic",
+    name: "Jersey beige",
+    price: 14,
+    images: ["jersey beige.jpg"],
+    description: "Jersey en tono beige, versátil y atemporal. Combínalo con tus vaqueros o pantalones favoritos para conseguir un look bonito y sofisticado.",
+    measurements: "Talla única"
+  },
+  {
+    id: "jersey-marron",
+    name: "Jersey marrón",
+    price: 14,
+    images: ["jerseymarron2.jpg"],
+    description: "Jersey en color marrón, perfecto para aportar calidez a tus conjuntos. Un tono elegante que combina fácilmente con colores neutros.",
+    measurements: "Talla única"
+  },
+  {
+    id: "perfume-mariposa",
+    name: "Perfume 💣🦋",
+    price: 10,
+    images: ["colonia1.PNG", "colonia2.JPG"],
+    description: "Un perfume ideal para acompañarte en tu día a día y completar tu rutina con un toque especial.",
+    measurements: ""
+  },
+  {
+    id: "chaqueta-antelina-botones",
+    name: "Chaqueta de antelina",
+    price: 17.90,
+    images: ["camisaantelina.PNG"],
+    description: "Chaqueta de antelina con un acabado suave y elegante. Una prenda versátil, perfecta para completar tus looks y darles un toque sofisticado.",
+    measurements: "Tallas disponibles: S, M y L"
+  },
+  {
+    id: "chaquetilla-botones-beige",
+    name: "Chaquetilla de botones beige",
+    price: 22.90,
+    stock: 0,
+    images: ["chaquetilla.PNG"],
+    description: "Chaquetilla en color beige con cierre de botones. Una prenda elegante y fácil de combinar, ideal para crear conjuntos cuidados en cualquier ocasión.",
+    measurements: ""
+  },
+  {
+    id: "chaquetilla-botones-verde",
+    name: "Chaquetilla de botones verde",
+    price: 22.90,
+    images: ["chaquetillaverde.jpg"],
+    description: "Chaquetilla verde con botones, perfecta para dar un toque de color a tus conjuntos sin perder la elegancia. Ideal para combinar con prendas básicas.",
+    measurements: ""
+  },
+  {
+    id: "pantalon-balloon-negro",
+    name: "Pantalón Balloon negro",
+    price: 23.90,
+    images: ["balloomnegro1.jpg", "balloomnegro2.jpg", "balloomnegro3.jpg"],
+    description: "Pantalón estilo balloon en color negro, con una silueta moderna y cómoda. Una prenda versátil y fácil de combinar para cualquier ocasión.",
+    measurements: "Talla única"
+  },
+  {
+    id: "pantalon-balloon-verde",
+    name: "Pantalón Balloon verde",
+    price: 23.90,
+    images: ["balloomverde1.jpg", "balloomverde2.jpg", "balloomverde3.jpg"],
+    description: "Pantalón estilo balloon en color verde, ideal para aportar un toque diferente a tus conjuntos. Cómodo, actual y muy fácil de combinar.",
+    measurements: "Talla única"
+  },
+  {
+    id: "sudadera-bulldog",
+    name: "Sudadera Bulldog",
+    price: 14,
+    stock: 0,
+    images: ["sudaderabulldog.jpg"],
+    description: "Sudadera con estampado Bulldog, perfecta para conseguir un look casual y desenfadado. Cómoda y con mucha personalidad.",
+    measurements: "Talla única"
+  },
+  {
+    id: "sudadera-nyc",
+    name: "Sudadera NYC",
+    price: 14,
+    stock: 0,
+    images: ["Nyc.jpg"],
+    description: "Sudadera con estilo urbano y estampado NYC. Ideal para crear conjuntos cómodos y modernos para el día a día.",
+    measurements: "Talla única"
+  },
+  {
+    id: "sudadera-perro-love",
+    name: "Sudadera Perro Love",
+    price: 14,
+    stock: 0,
+    images: ["sudaderaloveperro.jpg"],
+    description: "Sudadera con un diseño divertido y original de Perro Love. Una prenda cómoda y especial para tus looks más informales.",
+    measurements: "Talla única"
+  },
+  {
+    id: "bolso-estampado",
+    name: "Bolso estampado",
+    price: null,
+    images: ["bolsodorado1.jpg", "bolsodorado2.jpg"],
+    description: "Bolso estampado con un diseño original y elegante, perfecto para dar un toque especial a tus conjuntos.",
+    measurements: ""
+  },
+  {
+    id: "bolso-shopper-troquelado",
+    name: "Bolso Shopper troquelado burdeos",
+    price: 22.99,
+    images: ["bolsoshopper.JPG"],
+    description: "Bolso shopper troquelado en color burdeos. Incluye asa de mano, correa para llevarlo al hombro y un bonito lazo decorativo a juego.",
+    measurements: ""
+  },
+  {
+    id: "fajin-borgona-crema",
+    name: "Fajín borgoña y crema",
+    price: 12.50,
+    images: ["fajinburdeos.JPG"],
+    description: "Fajín en tonos borgoña y crema con doble tira, ideal para complementar tus looks y aportar un toque elegante y original.",
+    measurements: ""
+  },
+  {
+    id: "fajin-crema-verde",
+    name: "Fajín crema y verde",
+    price: 12.50,
+    images: ["fajinverde.JPG"],
+    description: "Fajín en tonos crema y verde con doble tira, perfecto para dar un toque especial y diferente a tus conjuntos.",
+    measurements: ""
+  }
+];
 
-    function makeImage(src, alt, className) {
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = alt;
-      img.className = className || "";
-      img.loading = "lazy";
+/* CATEGORÍAS */
 
-      img.addEventListener("error", function () {
-        img.alt = "No se ha encontrado la imagen: " + src;
-        img.title = "Comprueba que el nombre del archivo coincida con el de GitHub: " + src;
-      });
+const categories = [
+  {
+    id: "pantalones",
+    title: "Pantalones",
+    subtitle: "Encuentra tu próximo favorito.",
+    products: [
+      "pantalon-rayas-nv",
+      "pantalon-verde-bombacho",
+      "pantalon-palazzo-burdeos",
+      "pantalon-pana-beige",
+      "pantalon-pana-marron",
+      "pantalon-verona",
+      "pantalon-recto-inspiracion-levis",
+      "pantalon-balloon-negro",
+      "pantalon-balloon-verde"
+    ]
+  },
+  {
+    id: "camisas",
+    title: "Camisas, blusas y chaquetas",
+    subtitle: "Prendas especiales para completar tus looks.",
+    products: [
+      "camisa-estampada-burdeos",
+      "camisa-cuadros-volante",
+      "amara",
+      "vera",
+      "camiseta-velvet-burdeos",
+      "camiseta-velvet-verde",
+      "camiseta-velvet-negra",
+      "camiseta-velvet-teja",
+      "chaqueta-antelina",
+      "blusa-flower",
+      "blusa-pink",
+      "blusa-vicky",
+      "camisa-bordada",
+      "blusa-lola",
+      "chaqueta-antelina-botones",
+      "chaquetilla-botones-beige",
+      "chaquetilla-botones-verde"
+    ]
+  },
+  {
+    id: "jerseys",
+    title: "Jerseys y sudaderas",
+    subtitle: "Comodidad y estilo para cada día.",
+    products: [
+      "sudadera-perro-lucky",
+      "sudadera-tigre",
+      "jersey-chocolate",
+      "jersey-burdeos",
+      "jersey-punto-beige",
+      "sudadera-bulldog",
+      "sudadera-nyc",
+      "sudadera-perro-love",
+      "jersey-lazo",
+      "jersey-gris",
+      "jersey-beige-basic",
+      "jersey-marron"
+    ]
+  },
+  {
+    id: "conjuntos",
+    title: "Conjuntos",
+    subtitle: "Looks completos para tus días.",
+    products: [
+      "chandal-licra-negro",
+      "chandal-licra-marron-claro"
+    ]
+  },
+  {
+    id: "bolsos",
+    title: "Bolsos y monederos",
+    subtitle: "El complemento perfecto para cada ocasión.",
+    products: [
+      "siena-burdeos-gris",
+      "siena-verde-naranja",
+      "siena-morado-blanco",
+      "monedero-zebra-cabeza-dorada",
+      "monedero-zebra-amarillo",
+      "monedero-tachuelas-negro",
+      "monedero-tachuelas-marron",
+      "monedero-zebra-redondo",
+      "monedero-leopardo-redondo",
+      "monedero-leopardo-pequeno",
+      "bolso-estampado",
+      "bolso-shopper-troquelado"
+    ]
+  },
+  {
+    id: "complementos",
+    title: "Complementos",
+    subtitle: "Pequeños detalles que marcan la diferencia.",
+    products: [
+      "perfume-mariposa",
+      "fajin-borgona-crema",
+      "fajin-crema-verde"
+    ]
+  }
+];
 
-      return img;
-    }
+/* ELEMENTOS DE LA PÁGINA */
 
-    function renderProducts() {
-      productsGrid.innerHTML = "";
+const homeView = document.getElementById("home-view");
+const detailView = document.getElementById("detail-view");
+const catalogSections = document.getElementById("catalog-sections");
 
-      products.forEach(function (product) {
-        const card = document.createElement("button");
-        card.type = "button";
-        card.className = "product-card";
-        card.setAttribute("aria-label", "Ver " + product.name);
+const detailImage = document.getElementById("detail-image");
+const detailTitle = document.getElementById("detail-title");
+const detailPrice = document.getElementById("detail-price");
+const detailStatus = document.getElementById("detail-status");
+const detailDescription = document.getElementById("detail-description");
+const detailMeasurements = document.getElementById("detail-measurements");
+const thumbnails = document.getElementById("thumbnails");
+const galleryCount = document.getElementById("gallery-count");
+const whatsappOrder = document.getElementById("whatsapp-order");
 
-        const image = makeImage(
-          product.images[0],
-          product.name,
-          "card-image"
-        );
+const sideMenu = document.getElementById("side-menu");
+const menuOverlay = document.getElementById("menu-overlay");
 
-        const info = document.createElement("div");
-        info.className = "card-info";
+let currentProduct = null;
+let currentImageIndex = 0;
 
-        if (product.stock === 1) {
-          const stockBadge = document.createElement("span");
-          stockBadge.className = "stock-badge";
-          stockBadge.textContent = "¡Última unidad!";
-          info.appendChild(stockBadge);
-        }
+const whatsappNumber = "34658894201";
 
-        const title = document.createElement("h3");
-        title.textContent = product.name;
-        info.appendChild(title);
-
-        if (product.stock === 0) {
-          
-const badge = document.createElement("span");
-badge.className = "stock-badge agotado";
-badge.textContent = "AGOTADO";
-info.appendChild(badge);
+function formatPrice(price) {
+  return price.toLocaleString("es-ES", {
+    style: "currency",
+    currency: "EUR"
+  });
 }
 
-        if (product.price !== null) {
-          const price = document.createElement("p");
-          price.className = "price";
-          price.textContent = formatPrice(product.price);
-          info.appendChild(price);
-        }
+function makeImage(src, alt, className) {
+  const img = document.createElement("img");
+  img.src = src;
+  img.alt = alt;
+  img.className = className || "";
+  img.loading = "lazy";
 
-        const viewText = document.createElement("span");
-        viewText.className = "view-product";
-        viewText.textContent = "Ver producto";
-        info.appendChild(viewText);
+  img.addEventListener("error", function () {
+    img.alt = "No se ha encontrado la imagen: " + src;
+    img.title = "Comprueba que el nombre del archivo coincida con el de GitHub: " + src;
+  });
 
-        card.appendChild(image);
-        card.appendChild(info);
+  return img;
+}
 
-        card.addEventListener("click", function () {
-          openProduct(product.id);
-        });
+/* ETIQUETAS DE LOS PRODUCTOS */
 
-        productsGrid.appendChild(card);
-      });
-    }
+function createBadges(product) {
+  const badges = document.createElement("div");
+  badges.className = "badges";
 
-    function openProduct(productId) {
-      currentProduct = products.find(function (product) {
-        return product.id === productId;
-      });
+  if (product.isNew === true) {
+    const newBadge = document.createElement("span");
+    newBadge.className = "new-badge";
+    newBadge.textContent = "NUEVO";
+    badges.appendChild(newBadge);
+  }
 
-      if (!currentProduct) return;
+  if (product.stock === 0) {
+    const stockBadge = document.createElement("span");
+    stockBadge.className = "stock-badge";
+    stockBadge.textContent = "AGOTADO";
+    badges.appendChild(stockBadge);
+  } else if (product.stock === 1) {
+    const stockBadge = document.createElement("span");
+    stockBadge.className = "stock-badge";
+    stockBadge.textContent = "¡Última unidad!";
+    badges.appendChild(stockBadge);
+  }
 
-      currentImageIndex = 0;
+  return badges;
+}
 
-      homeView.style.display = "none";
-      detailView.style.display = "block";
+/* TARJETAS DE PRODUCTOS */
 
-      detailTitle.textContent = currentProduct.name;
-      detailDescription.textContent = currentProduct.description;
-      detailMeasurements.textContent = currentProduct.measurements;
-      detailStock.style.display = currentProduct.stock === 1 ? "block" : "none";
+function createProductCard(product) {
+  const card = document.createElement("button");
+  card.type = "button";
+  card.className = "product-card";
+  card.setAttribute("aria-label", "Ver " + product.name);
 
-      if (currentProduct.price !== null) {
-        detailPrice.textContent = formatPrice(currentProduct.price);
-        detailPrice.style.display = "block";
-      } else {
-        // La blusa Amara no muestra ningún precio ni texto alternativo.
-        detailPrice.textContent = "";
-        detailPrice.style.display = "none";
-      }
+  const image = makeImage(
+    product.images[0],
+    product.name,
+    "card-image"
+  );
 
-      const message = "Hola, estoy interesada en " + currentProduct.name +
-        (currentProduct.price !== null
-          ? " (" + formatPrice(currentProduct.price) + ")"
-          : "") +
-        ". ¿Podéis darme información para hacer el pedido?";
+  const info = document.createElement("div");
+  info.className = "card-info";
 
-      whatsappOrder.href =
-        "https://wa.me/" + whatsappNumber +
-        "?text=" + encodeURIComponent(message);
+  const badges = createBadges(product);
 
-      renderGallery();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  if (badges.children.length > 0) {
+    info.appendChild(badges);
+  }
 
-      history.pushState(
-        { productId: productId },
-        "",
-        "#producto-" + productId
-      );
-    }
+  const title = document.createElement("h3");
+  title.textContent = product.name;
+  info.appendChild(title);
 
-    function renderGallery() {
-      if (!currentProduct) return;
+  if (product.price !== null) {
+    const price = document.createElement("p");
+    price.className = "price";
+    price.textContent = formatPrice(product.price);
+    info.appendChild(price);
+  }
 
-      const images = currentProduct.images;
-      const imageSrc = images[currentImageIndex];
+  const viewText = document.createElement("span");
+  viewText.className = "view-product";
+  viewText.textContent = "Ver producto";
+  info.appendChild(viewText);
 
-      detailImage.src = imageSrc;
-      detailImage.alt = currentProduct.name + " - foto " +
-        (currentImageIndex + 1);
+  card.appendChild(image);
+  card.appendChild(info);
 
-      galleryCount.textContent =
-        "Foto " + (currentImageIndex + 1) + " de " + images.length;
+  card.addEventListener("click", function () {
+    openProduct(product.id);
+  });
 
-      thumbnails.innerHTML = "";
+  return card;
+}
 
-      images.forEach(function (src, index) {
-        const thumb = document.createElement("button");
-        thumb.type = "button";
-        thumb.className =
-          "thumbnail" + (index === currentImageIndex ? " active" : "");
-        thumb.setAttribute("aria-label", "Ver foto " + (index + 1));
+/* MOSTRAR TODAS LAS SECCIONES */
 
-        const img = makeImage(
-          src,
-          currentProduct.name + " - miniatura " + (index + 1),
-          ""
-        );
+function renderProducts() {
+  catalogSections.innerHTML = "";
 
-        thumb.appendChild(img);
+  const newProducts = products.filter(function (product) {
+    return product.isNew === true;
+  });
 
-        thumb.addEventListener("click", function () {
-          currentImageIndex = index;
-          renderGallery();
-        });
+  if (newProducts.length > 0) {
+    const newSection = document.createElement("section");
+    newSection.className = "section category-section";
+    newSection.id = "novedades";
 
-        thumbnails.appendChild(thumb);
-      });
+    const heading = document.createElement("div");
+    heading.className = "category-heading";
 
-      const hasMultipleImages = images.length > 1;
-      document.getElementById("prev-image").style.display =
-        hasMultipleImages ? "block" : "none";
-      document.getElementById("next-image").style.display =
-        hasMultipleImages ? "block" : "none";
-      thumbnails.style.display = hasMultipleImages ? "flex" : "none";
-      galleryCount.style.display = hasMultipleImages ? "block" : "none";
-    }
+    const title = document.createElement("h2");
+    title.textContent = "✦ Novedades";
 
-    function returnToCollection() {
-      detailView.style.display = "none";
-      homeView.style.display = "block";
-      currentProduct = null;
+    const subtitle = document.createElement("p");
+    subtitle.textContent = "Descubre lo último que ha llegado a TAMNÜR.";
 
-      history.pushState({}, "", "#coleccion");
-      document.getElementById("coleccion").scrollIntoView({
-        behavior: "smooth"
-      });
-    }
+    heading.appendChild(title);
+    heading.appendChild(subtitle);
 
-    document.getElementById("prev-image").addEventListener("click", function () {
-      if (!currentProduct) return;
+    const grid = document.createElement("div");
+    grid.className = "products";
 
-      currentImageIndex =
-        (currentImageIndex - 1 + currentProduct.images.length) %
-        currentProduct.images.length;
-
-      renderGallery();
+    newProducts.forEach(function (product) {
+      grid.appendChild(createProductCard(product));
     });
 
-    document.getElementById("next-image").addEventListener("click", function () {
-      if (!currentProduct) return;
+    newSection.appendChild(heading);
+    newSection.appendChild(grid);
+    catalogSections.appendChild(newSection);
+  }
 
-      currentImageIndex =
-        (currentImageIndex + 1) % currentProduct.images.length;
+  categories.forEach(function (category) {
+    const categoryProducts = category.products
+      .map(function (productId) {
+        return products.find(function (product) {
+          return product.id === productId;
+        });
+      })
+      .filter(Boolean);
 
-      renderGallery();
+    if (categoryProducts.length === 0) return;
+
+    const section = document.createElement("section");
+    section.className = "section category-section";
+    section.id = category.id;
+
+    const heading = document.createElement("div");
+    heading.className = "category-heading";
+
+    const title = document.createElement("h2");
+    title.textContent = category.title;
+
+    const subtitle = document.createElement("p");
+    subtitle.textContent = category.subtitle;
+
+    heading.appendChild(title);
+    heading.appendChild(subtitle);
+
+    const grid = document.createElement("div");
+    grid.className = "products";
+
+    categoryProducts.forEach(function (product) {
+      grid.appendChild(createProductCard(product));
     });
 
-    document.getElementById("back-button").addEventListener(
-      "click",
-      returnToCollection
+    section.appendChild(heading);
+    section.appendChild(grid);
+    catalogSections.appendChild(section);
+  });
+}
+
+/* ABRIR FICHA DE PRODUCTO */
+
+function openProduct(productId) {
+  currentProduct = products.find(function (product) {
+    return product.id === productId;
+  });
+
+  if (!currentProduct) return;
+
+  currentImageIndex = 0;
+
+  homeView.style.display = "none";
+  detailView.style.display = "block";
+
+  detailTitle.textContent = currentProduct.name;
+  detailDescription.textContent = currentProduct.description;
+  detailMeasurements.textContent = currentProduct.measurements || "";
+
+  detailStatus.innerHTML = "";
+  const badges = createBadges(currentProduct);
+
+  while (badges.firstChild) {
+    detailStatus.appendChild(badges.firstChild);
+  }
+
+  if (currentProduct.price !== null) {
+    detailPrice.textContent = formatPrice(currentProduct.price);
+    detailPrice.style.display = "block";
+  } else {
+    detailPrice.textContent = "";
+    detailPrice.style.display = "none";
+  }
+
+  const message = "Hola, estoy interesada en " + currentProduct.name +
+    (currentProduct.price !== null
+      ? " (" + formatPrice(currentProduct.price) + ")"
+      : "") +
+    ". ¿Podéis darme información para hacer el pedido?";
+
+  whatsappOrder.href =
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(message);
+
+  renderGallery();
+  closeMenu();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  history.pushState(
+    { productId: productId },
+    "",
+    "#producto-" + productId
+  );
+}
+
+/* GALERÍA DE FOTOGRAFÍAS */
+
+function renderGallery() {
+  if (!currentProduct) return;
+
+  const images = currentProduct.images;
+  const imageSrc = images[currentImageIndex];
+
+  detailImage.src = imageSrc;
+  detailImage.alt = currentProduct.name + " - foto " +
+    (currentImageIndex + 1);
+
+  galleryCount.textContent =
+    "Foto " + (currentImageIndex + 1) + " de " + images.length;
+
+  thumbnails.innerHTML = "";
+
+  images.forEach(function (src, index) {
+    const thumb = document.createElement("button");
+    thumb.type = "button";
+    thumb.className =
+      "thumbnail" + (index === currentImageIndex ? " active" : "");
+    thumb.setAttribute("aria-label", "Ver foto " + (index + 1));
+
+    const img = makeImage(
+      src,
+      currentProduct.name + " - miniatura " + (index + 1),
+      ""
     );
 
-    document.getElementById("continue-shopping").addEventListener(
-      "click",
-      returnToCollection
-    );
+    thumb.appendChild(img);
 
-    document.getElementById("home-link").addEventListener("click", function (event) {
-      event.preventDefault();
-      detailView.style.display = "none";
-      homeView.style.display = "block";
-      currentProduct = null;
-      history.pushState({}, "", "#inicio");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    document.getElementById("collection-link").addEventListener("click", function (event) {
-      event.preventDefault();
-      detailView.style.display = "none";
-      homeView.style.display = "block";
-      currentProduct = null;
-      history.pushState({}, "", "#coleccion");
-      document.getElementById("coleccion").scrollIntoView({
-        behavior: "smooth"
-      });
-    });
-
-    document.getElementById("contact-link").addEventListener("click", function (event) {
-      event.preventDefault();
-      detailView.style.display = "none";
-      homeView.style.display = "block";
-      currentProduct = null;
-      history.pushState({}, "", "#contacto");
-      document.getElementById("contacto").scrollIntoView({
-        behavior: "smooth"
-      });
-    });
-
-    window.addEventListener("popstate", function () {
-      const productId = window.location.hash.startsWith("#producto-")
-        ? window.location.hash.replace("#producto-", "")
-        : null;
-
-      if (productId) {
-        openProductWithoutHistory(productId);
-      } else {
-        detailView.style.display = "none";
-        homeView.style.display = "block";
-        currentProduct = null;
-
-        if (window.location.hash === "#contacto") {
-          document.getElementById("contacto").scrollIntoView();
-        } else if (window.location.hash === "#coleccion") {
-          document.getElementById("coleccion").scrollIntoView();
-        } else {
-          window.scrollTo(0, 0);
-        }
-      }
-    });
-
-    function openProductWithoutHistory(productId) {
-      currentProduct = products.find(function (product) {
-        return product.id === productId;
-      });
-
-      if (!currentProduct) {
-        detailView.style.display = "none";
-        homeView.style.display = "block";
-        return;
-      }
-
-      currentImageIndex = 0;
-      homeView.style.display = "none";
-      detailView.style.display = "block";
-
-      detailTitle.textContent = currentProduct.name;
-      detailDescription.textContent = currentProduct.description;
-      detailMeasurements.textContent = currentProduct.measurements;
-      detailStock.style.display = currentProduct.stock === 1 ? "block" : "none";
-
-      if (currentProduct.price !== null) {
-        detailPrice.textContent = formatPrice(currentProduct.price);
-        detailPrice.style.display = "block";
-      } else {
-        detailPrice.textContent = "";
-        detailPrice.style.display = "none";
-      }
-
-      const message = "Hola, estoy interesada en " + currentProduct.name +
-        (currentProduct.price !== null
-          ? " (" + formatPrice(currentProduct.price) + ")"
-          : "") +
-        ". ¿Podéis darme información para hacer el pedido?";
-
-      whatsappOrder.href =
-        "https://wa.me/" + whatsappNumber +
-        "?text=" + encodeURIComponent(message);
-
+    thumb.addEventListener("click", function () {
+      currentImageIndex = index;
       renderGallery();
+    });
+
+    thumbnails.appendChild(thumb);
+  });
+
+  const hasMultipleImages = images.length > 1;
+
+  document.getElementById("prev-image").style.display =
+    hasMultipleImages ? "block" : "none";
+
+  document.getElementById("next-image").style.display =
+    hasMultipleImages ? "block" : "none";
+
+  thumbnails.style.display = hasMultipleImages ? "flex" : "none";
+  galleryCount.style.display = hasMultipleImages ? "block" : "none";
+}
+
+/* VOLVER A LA COLECCIÓN */
+
+function returnToCollection() {
+  detailView.style.display = "none";
+  homeView.style.display = "block";
+  currentProduct = null;
+
+  history.pushState({}, "", "#coleccion");
+
+  document.getElementById("coleccion").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+/* MENÚ LATERAL */
+
+function openMenu() {
+  sideMenu.classList.add("active");
+  menuOverlay.classList.add("active");
+  document.body.classList.add("menu-open");
+}
+
+function closeMenu() {
+  sideMenu.classList.remove("active");
+  menuOverlay.classList.remove("active");
+  document.body.classList.remove("menu-open");
+}
+
+document.getElementById("open-menu").addEventListener("click", openMenu);
+document.getElementById("close-menu").addEventListener("click", closeMenu);
+menuOverlay.addEventListener("click", closeMenu);
+
+document.querySelectorAll(".menu-links a[data-target]").forEach(function (link) {
+  link.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const targetId = link.dataset.target;
+    const target = document.getElementById(targetId);
+
+    closeMenu();
+
+    detailView.style.display = "none";
+    homeView.style.display = "block";
+    currentProduct = null;
+
+    history.pushState({}, "", "#" + targetId);
+
+    if (target) {
+      setTimeout(function () {
+        target.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  });
+});
+
+/* BOTONES DE LA GALERÍA */
+
+document.getElementById("prev-image").addEventListener("click", function () {
+  if (!currentProduct) return;
+
+  currentImageIndex =
+    (currentImageIndex - 1 + currentProduct.images.length) %
+    currentProduct.images.length;
+
+  renderGallery();
+});
+
+document.getElementById("next-image").addEventListener("click", function () {
+  if (!currentProduct) return;
+
+  currentImageIndex =
+    (currentImageIndex + 1) % currentProduct.images.length;
+
+  renderGallery();
+});
+
+document.getElementById("back-button").addEventListener(
+  "click",
+  returnToCollection
+);
+
+document.getElementById("continue-shopping").addEventListener(
+  "click",
+  returnToCollection
+);
+
+/* ENLACES DE NAVEGACIÓN */
+
+document.getElementById("home-link").addEventListener("click", function (event) {
+  event.preventDefault();
+  detailView.style.display = "none";
+  homeView.style.display = "block";
+  currentProduct = null;
+
+  history.pushState({}, "", "#inicio");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+document.getElementById("collection-link").addEventListener("click", function (event) {
+  event.preventDefault();
+  detailView.style.display = "none";
+  homeView.style.display = "block";
+  currentProduct = null;
+
+  history.pushState({}, "", "#coleccion");
+  document.getElementById("coleccion").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+document.getElementById("contact-link").addEventListener("click", function (event) {
+  event.preventDefault();
+  detailView.style.display = "none";
+  homeView.style.display = "block";
+  currentProduct = null;
+
+  history.pushState({}, "", "#contacto");
+  document.getElementById("contacto").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+document.getElementById("discover-button").addEventListener("click", function (event) {
+  event.preventDefault();
+  document.getElementById("coleccion").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+/* HISTORIAL DEL NAVEGADOR */
+
+function openProductWithoutHistory(productId) {
+  currentProduct = products.find(function (product) {
+    return product.id === productId;
+  });
+
+  if (!currentProduct) {
+    detailView.style.display = "none";
+    homeView.style.display = "block";
+    return;
+  }
+
+  currentImageIndex = 0;
+  homeView.style.display = "none";
+  detailView.style.display = "block";
+
+  detailTitle.textContent = currentProduct.name;
+  detailDescription.textContent = currentProduct.description;
+  detailMeasurements.textContent = currentProduct.measurements || "";
+
+  detailStatus.innerHTML = "";
+  const badges = createBadges(currentProduct);
+
+  while (badges.firstChild) {
+    detailStatus.appendChild(badges.firstChild);
+  }
+
+  if (currentProduct.price !== null) {
+    detailPrice.textContent = formatPrice(currentProduct.price);
+    detailPrice.style.display = "block";
+  } else {
+    detailPrice.textContent = "";
+    detailPrice.style.display = "none";
+  }
+
+  const message = "Hola, estoy interesada en " + currentProduct.name +
+    (currentProduct.price !== null
+      ? " (" + formatPrice(currentProduct.price) + ")"
+      : "") +
+    ". ¿Podéis darme información para hacer el pedido?";
+
+  whatsappOrder.href =
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(message);
+
+  renderGallery();
+  window.scrollTo(0, 0);
+}
+
+window.addEventListener("popstate", function () {
+  const productId = window.location.hash.startsWith("#producto-")
+    ? window.location.hash.replace("#producto-", "")
+    : null;
+
+  if (productId) {
+    openProductWithoutHistory(productId);
+  } else {
+    detailView.style.display = "none";
+    homeView.style.display = "block";
+    currentProduct = null;
+
+    const targetId = window.location.hash.replace("#", "");
+    const target = document.getElementById(targetId);
+
+    if (target) {
+      target.scrollIntoView();
+    } else {
       window.scrollTo(0, 0);
     }
+  }
+});
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+/* INICIO */
 
-    renderProducts();
+document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Permite abrir directamente un producto si se visita su enlace.
-    if (window.location.hash.startsWith("#producto-")) {
-      const initialProductId =
-        window.location.hash.replace("#producto-", "");
-      openProductWithoutHistory(initialProductId);
-    }
-  </script>
+renderProducts();
+
+if (window.location.hash.startsWith("#producto-")) {
+  const initialProductId =
+    window.location.hash.replace("#producto-", "");
+
+  openProductWithoutHistory(initialProductId);
+}
+</script>
+
 </body>
 </html>
