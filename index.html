@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f6f0e8">
 <title>TAMNÜR | Moda y complementos</title>
-
+ 
 <style>
 :root {
   --fondo: #faf7f2;
@@ -16,21 +16,21 @@
   --blanco: #ffffff;
   --borde: #e4d8ca;
 }
-
+ 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-
+ 
 body {
   margin: 0;
   background: var(--fondo);
   color: var(--texto);
   font-family: Arial, Helvetica, sans-serif;
 }
-
+ 
 body.menu-open { overflow: hidden; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
-
+ 
 .topbar {
   background: var(--marron);
   color: white;
@@ -39,7 +39,7 @@ button { font: inherit; }
   font-size: 12px;
   letter-spacing: 1px;
 }
-
+ 
 header {
   background: var(--fondo);
   padding: 20px 16px;
@@ -48,7 +48,7 @@ header {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
 }
-
+ 
 .logo {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
@@ -57,7 +57,7 @@ header {
   font-weight: normal;
   text-align: center;
 }
-
+ 
 .tagline {
   color: var(--suave);
   font-size: 11px;
@@ -66,7 +66,7 @@ header {
   text-transform: uppercase;
   text-align: center;
 }
-
+ 
 .header-menu-button {
   justify-self: start;
   border: 1px solid var(--borde);
@@ -77,9 +77,9 @@ header {
   font-size: 25px;
   cursor: pointer;
 }
-
+ 
 .header-space { justify-self: end; }
-
+ 
 nav {
   display: flex;
   justify-content: center;
@@ -90,16 +90,16 @@ nav {
   font-size: 12px;
   letter-spacing: 1px;
 }
-
+ 
 nav a {
   color: var(--texto);
   text-decoration: none;
 }
-
+ 
 nav a:hover { color: var(--suave); }
-
+ 
 /* MENÚ LATERAL */
-
+ 
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -109,12 +109,12 @@ nav a:hover { color: var(--suave); }
   visibility: hidden;
   transition: 0.25s;
 }
-
+ 
 .menu-overlay.active {
   opacity: 1;
   visibility: visible;
 }
-
+ 
 .side-menu {
   position: fixed;
   z-index: 1001;
@@ -129,9 +129,9 @@ nav a:hover { color: var(--suave); }
   transition: transform 0.3s ease;
   box-shadow: -5px 0 25px #00000018;
 }
-
+ 
 .side-menu.active { transform: translateX(0); }
-
+ 
 .menu-top {
   display: flex;
   align-items: center;
@@ -140,7 +140,7 @@ nav a:hover { color: var(--suave); }
   padding-bottom: 18px;
   margin-bottom: 18px;
 }
-
+ 
 .menu-top h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 25px;
@@ -148,7 +148,7 @@ nav a:hover { color: var(--suave); }
   letter-spacing: 3px;
   margin: 0;
 }
-
+ 
 .close-menu {
   background: transparent;
   border: 0;
@@ -156,12 +156,12 @@ nav a:hover { color: var(--suave); }
   font-size: 29px;
   cursor: pointer;
 }
-
+ 
 .menu-links {
   display: flex;
   flex-direction: column;
 }
-
+ 
 .menu-links a {
   color: var(--texto);
   text-decoration: none;
@@ -170,9 +170,9 @@ nav a:hover { color: var(--suave); }
   font-size: 13px;
   letter-spacing: 0.7px;
 }
-
+ 
 .menu-links a:hover { color: var(--suave); }
-
+ 
 .menu-caption {
   color: var(--suave);
   font-size: 10px;
@@ -180,22 +180,22 @@ nav a:hover { color: var(--suave); }
   margin: 22px 4px 5px;
   text-transform: uppercase;
 }
-
+ 
 /* PORTADA */
-
+ 
 .hero {
   padding: 55px 20px;
   text-align: center;
   background: linear-gradient(135deg, #eee2d4, #faf7f2 55%, #e5d5c5);
 }
-
+ 
 .hero h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(29px, 6vw, 43px);
   font-weight: normal;
   margin: 0 0 15px;
 }
-
+ 
 .hero p {
   color: #6c5548;
   font-size: 14px;
@@ -203,7 +203,7 @@ nav a:hover { color: var(--suave); }
   max-width: 480px;
   margin: 0 auto 24px;
 }
-
+ 
 .button {
   display: inline-block;
   background: var(--marron);
@@ -217,71 +217,71 @@ nav a:hover { color: var(--suave); }
   text-align: center;
   transition: background 0.2s;
 }
-
+ 
 .button:hover { background: #765849; }
-
+ 
 .button.secondary {
   background: transparent;
   color: var(--marron);
 }
-
+ 
 .button.secondary:hover { background: var(--crema); }
-
+ 
 /* SECCIONES Y PRODUCTOS */
-
+ 
 .section {
   max-width: 1180px;
   margin: 0 auto;
   padding: 48px 18px;
   scroll-margin-top: 15px;
 }
-
+ 
 .section-heading {
   text-align: center;
   margin-bottom: 30px;
 }
-
+ 
 .section-heading h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 30px;
   font-weight: normal;
   margin: 0 0 10px;
 }
-
+ 
 .section-heading p {
   color: var(--suave);
   font-size: 13px;
   line-height: 1.7;
 }
-
+ 
 .category-section {
   border-top: 1px solid var(--borde);
 }
-
+ 
 .category-heading {
   text-align: center;
   margin: 0 0 27px;
 }
-
+ 
 .category-heading h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 27px;
   font-weight: normal;
   margin: 0 0 8px;
 }
-
+ 
 .category-heading p {
   color: var(--suave);
   font-size: 12px;
   margin: 0;
 }
-
+ 
 .products {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px 18px;
 }
-
+ 
 .product-card {
   min-width: 0;
   border: 1px solid var(--borde);
@@ -294,12 +294,12 @@ nav a:hover { color: var(--suave); }
   flex-direction: column;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
+ 
 .product-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 22px #5b403414;
 }
-
+ 
 .card-image {
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -307,19 +307,19 @@ nav a:hover { color: var(--suave); }
   display: block;
   background: var(--crema);
 }
-
+ 
 .card-info {
   padding: 15px 12px 18px;
   text-align: center;
 }
-
+ 
 .card-info h3 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 17px;
   font-weight: normal;
   margin: 0 0 10px;
 }
-
+ 
 .badges {
   display: flex;
   flex-wrap: wrap;
@@ -327,7 +327,7 @@ nav a:hover { color: var(--suave); }
   gap: 6px;
   margin-bottom: 10px;
 }
-
+ 
 .stock-badge, .new-badge {
   display: inline-block;
   padding: 6px 9px;
@@ -336,24 +336,24 @@ nav a:hover { color: var(--suave); }
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-
+ 
 .stock-badge {
   background: #f4e7df;
   color: #704b3b;
 }
-
+ 
 .new-badge {
   background: #eee3d5;
   color: #5b4034;
 }
-
+ 
 .price {
   font-size: 14px;
   color: var(--marron);
   font-weight: bold;
   margin: 0;
 }
-
+ 
 .view-product {
   display: inline-block;
   margin-top: 13px;
@@ -362,11 +362,11 @@ nav a:hover { color: var(--suave); }
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-
+ 
 /* FICHA DE PRODUCTO */
-
+ 
 #detail-view { display: none; }
-
+ 
 .back-button {
   background: transparent;
   border: 0;
@@ -376,19 +376,19 @@ nav a:hover { color: var(--suave); }
   cursor: pointer;
   font-size: 13px;
 }
-
+ 
 .detail-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: 42px;
   align-items: start;
 }
-
+ 
 .gallery-main {
   position: relative;
   background: var(--crema);
 }
-
+ 
 .gallery-main img {
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -396,7 +396,7 @@ nav a:hover { color: var(--suave); }
   display: block;
   background: var(--crema);
 }
-
+ 
 .gallery-arrow {
   position: absolute;
   top: 50%;
@@ -410,23 +410,23 @@ nav a:hover { color: var(--suave); }
   cursor: pointer;
   font-size: 23px;
 }
-
+ 
 .gallery-arrow.prev { left: 10px; }
 .gallery-arrow.next { right: 10px; }
-
+ 
 .gallery-count {
   text-align: center;
   font-size: 12px;
   color: var(--suave);
   margin: 10px 0;
 }
-
+ 
 .thumbnails {
   display: flex;
   gap: 10px;
   margin-top: 12px;
 }
-
+ 
 .thumbnail {
   width: 76px;
   height: 90px;
@@ -436,59 +436,59 @@ nav a:hover { color: var(--suave); }
   cursor: pointer;
   overflow: hidden;
 }
-
+ 
 .thumbnail.active { border: 2px solid var(--marron); }
-
+ 
 .thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-
+ 
 .detail-info { padding-top: 12px; }
-
+ 
 .eyebrow {
   text-transform: uppercase;
   color: var(--suave);
   font-size: 11px;
   letter-spacing: 2px;
 }
-
+ 
 .detail-info h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(27px, 4vw, 37px);
   font-weight: normal;
   margin: 12px 0;
 }
-
+ 
 .detail-price {
   font-size: 20px;
   font-weight: bold;
   color: var(--marron);
   margin: 0 0 24px;
 }
-
+ 
 .detail-description {
   font-size: 14px;
   line-height: 1.9;
   white-space: pre-line;
   color: #665349;
 }
-
+ 
 .measurements {
   margin-top: 18px;
   font-size: 13px;
   line-height: 1.9;
 }
-
+ 
 .detail-status {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
   margin: 15px 0;
 }
-
+ 
 .detail-actions {
   display: flex;
   flex-direction: column;
@@ -496,9 +496,9 @@ nav a:hover { color: var(--suave); }
   gap: 12px;
   margin-top: 28px;
 }
-
+ 
 .detail-actions .button { width: 100%; }
-
+ 
 .shipping-note {
   margin-top: 24px;
   border-top: 1px solid var(--borde);
@@ -507,9 +507,9 @@ nav a:hover { color: var(--suave); }
   font-size: 12px;
   line-height: 1.8;
 }
-
+ 
 /* PIE */
-
+ 
 .info-strip {
   background: var(--crema);
   display: grid;
@@ -518,7 +518,7 @@ nav a:hover { color: var(--suave); }
   padding: 27px 10px;
   gap: 15px;
 }
-
+ 
 .info-strip strong {
   display: block;
   font-family: Georgia, "Times New Roman", serif;
@@ -526,35 +526,35 @@ nav a:hover { color: var(--suave); }
   font-weight: normal;
   margin-bottom: 7px;
 }
-
+ 
 .info-strip span {
   font-size: 11px;
   color: #705a4c;
   line-height: 1.6;
 }
-
+ 
 footer {
   background: #392820;
   color: #f7eee5;
   text-align: center;
   padding: 35px 18px;
 }
-
+ 
 .footer-logo {
   font-family: Georgia, "Times New Roman", serif;
   letter-spacing: 6px;
   font-size: 27px;
   margin: 0 0 12px;
 }
-
+ 
 footer p {
   font-size: 12px;
   line-height: 1.9;
   color: #e0d0c2;
 }
-
+ 
 footer a { color: #fff; }
-
+ 
 .footer-links {
   display: flex;
   justify-content: center;
@@ -563,94 +563,94 @@ footer a { color: #fff; }
   margin-top: 20px;
   font-size: 12px;
 }
-
+ 
 .footer-links a { text-decoration: none; }
-
+ 
 @media (max-width: 760px) {
   .products {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 17px 12px;
   }
-
+ 
   .card-info { padding: 12px 7px 15px; }
   .card-info h3 { font-size: 15px; }
-
+ 
   .detail-layout {
     grid-template-columns: 1fr;
     gap: 25px;
   }
-
+ 
   .detail-info { padding-top: 0; }
   .section { padding: 35px 14px; }
-
+ 
   .info-strip {
     grid-template-columns: 1fr;
     gap: 23px;
   }
-
+ 
   nav { gap: 15px; }
 }
-
+ 
 @media (min-width: 761px) {
   .header-menu-button { width: 46px; }
 }
 </style>
 </head>
-
+ 
 <body>
-
+ 
 <div class="topbar">
   ENVÍOS EN 24/48 HORAS · TIENDA EN CÁCERES
 </div>
-
+ 
 <header>
   <button class="header-menu-button" id="open-menu"
     type="button" aria-label="Abrir menú">☰</button>
-
+ 
   <div>
     <h1 class="logo">TAMNÜR</h1>
     <p class="tagline">Moda y complementos</p>
   </div>
-
+ 
   <div class="header-space"></div>
 </header>
-
+ 
 <nav>
   <a href="#inicio" id="home-link">INICIO</a>
   <a href="#coleccion" id="collection-link">COLECCIÓN</a>
   <a href="#contacto" id="contact-link">CONTACTO</a>
 </nav>
-
+ 
 <div class="menu-overlay" id="menu-overlay"></div>
-
+ 
 <aside class="side-menu" id="side-menu">
   <div class="menu-top">
     <h2>TAMNÜR</h2>
     <button class="close-menu" id="close-menu"
       type="button" aria-label="Cerrar menú">×</button>
   </div>
-
+ 
   <div class="menu-links">
     <a href="#inicio" data-target="inicio">Inicio</a>
     <a href="#coleccion" data-target="coleccion">Toda la colección</a>
-
+ 
     <p class="menu-caption">Comprar por categoría</p>
-
+ 
     <a href="#novedades" data-target="novedades">✦ Novedades</a>
     <a href="#pantalones" data-target="pantalones">Pantalones</a>
     <a href="#camisas" data-target="camisas">Camisas, blusas y chaquetas</a>
     <a href="#jerseys" data-target="jerseys">Jerseys y sudaderas</a>
-    <a href="#conjuntos" data-target="conjuntos">Conjuntos</a>
+    <a href="#conjuntos" data-target="conjuntos">Chándales oversize</a>
     <a href="#bolsos" data-target="bolsos">Bolsos y monederos</a>
     <a href="#complementos" data-target="complementos">Complementos</a>
-
+ 
     <p class="menu-caption">Contacto</p>
     <a href="#contacto" data-target="contacto">Contacto y pedidos</a>
   </div>
 </aside>
-
+ 
 <main id="home-view">
-
+ 
   <section class="hero" id="inicio">
     <h2>Tu estilo, tu esencia</h2>
     <p>
@@ -661,16 +661,16 @@ footer a { color: #fff; }
       DESCUBRIR COLECCIÓN
     </a>
   </section>
-
+ 
   <section class="section" id="coleccion">
     <div class="section-heading">
       <h2>Nuestra colección</h2>
       <p>Encuentra tus nuevos favoritos.</p>
     </div>
-
+ 
     <div id="catalog-sections"></div>
   </section>
-
+ 
   <section class="info-strip">
     <div>
       <strong>📍 Cáceres</strong>
@@ -685,15 +685,15 @@ footer a { color: #fff; }
       <span>Haz tu pedido por WhatsApp</span>
     </div>
   </section>
-
+ 
 </main>
-
+ 
 <main id="detail-view">
   <section class="section">
     <button class="back-button" id="back-button" type="button">
       ← Volver a la colección
     </button>
-
+ 
     <div class="detail-layout">
       <div class="gallery">
         <div class="gallery-main">
@@ -703,11 +703,11 @@ footer a { color: #fff; }
           <button class="gallery-arrow next" id="next-image"
             type="button" aria-label="Foto siguiente">›</button>
         </div>
-
+ 
         <p class="gallery-count" id="gallery-count"></p>
         <div class="thumbnails" id="thumbnails"></div>
       </div>
-
+ 
       <div class="detail-info">
         <p class="eyebrow">TAMNÜR · MODA Y COMPLEMENTOS</p>
         <h2 id="detail-title"></h2>
@@ -715,14 +715,14 @@ footer a { color: #fff; }
         <p class="detail-price" id="detail-price"></p>
         <div class="detail-description" id="detail-description"></div>
         <div class="measurements" id="detail-measurements"></div>
-
+ 
         <div class="detail-actions">
           <a class="button" id="whatsapp-order" href="#" target="_blank"
             rel="noopener noreferrer">PEDIR POR WHATSAPP</a>
           <button class="button secondary" id="continue-shopping"
             type="button">SEGUIR VIENDO PRODUCTOS</button>
         </div>
-
+ 
         <div class="shipping-note">
           Envíos en 24/48 horas.<br>
           Tienda en Cáceres.<br>
@@ -732,7 +732,7 @@ footer a { color: #fff; }
     </div>
   </section>
 </main>
-
+ 
 <footer id="contacto">
   <p class="footer-logo">TAMNÜR</p>
   <p>Moda y complementos · Cáceres</p>
@@ -745,7 +745,7 @@ footer a { color: #fff; }
     <a href="https://wa.me/34600459743" target="_blank"
       rel="noopener noreferrer">600 459 743</a>
   </p>
-
+ 
   <div class="footer-links">
     <a href="https://www.instagram.com/tamnur_0/"
       target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -754,27 +754,27 @@ footer a { color: #fff; }
     <a href="https://wa.me/34600459743"
       target="_blank" rel="noopener noreferrer">WhatsApp alternativo</a>
   </div>
-
+ 
   <p>© <span id="year"></span> TAMNÜR. Todos los derechos reservados.</p>
 </footer>
-
+ 
 <script>
 /*
   Para marcar un producto como novedad:
   isNew: true
-
+ 
   Cuando quieras quitarle la etiqueta:
   isNew: false
-
+ 
   Para marcarlo como agotado:
   stock: 0
-
+ 
   Para indicar que queda una unidad:
   stock: 1
 */
-
+ 
 const products = [
-
+ 
   {
     id: "pantalon-rayas-nv",
     name: "Pantalón de rayas",
@@ -1328,9 +1328,9 @@ const products = [
     description: "Jersey con detalle de lazo de estampado leopardo.",
     measurements: ""
   },
-
+ 
   /* NUEVOS PRODUCTOS */
-
+ 
   {
     id: "sudadera-perro-burdeos",
     name: "Sudadera Perro Burdeos",
@@ -1483,11 +1483,155 @@ const products = [
     images: ["camisetalenceraconchaqueta.jpg"],
     description: "Camisa lencera con chaqueta, una combinación especial y versátil para completar tus conjuntos.",
     measurements: ""
-  }
+  },
+  {
+    id: "jersey-bolitas-nuevo",
+    name: "Jersey de bolitas",
+    price: 22.99,
+    isNew: true,
+    images: ["Jerseybolitas.jpg"],
+    description: "Jersey de punto con detalle de bolitas, cómodo y fácil de combinar. Disponible en varios colores.",
+    measurements: "Talla hasta la 42. Varios colores disponibles"
+  },
+  {
+    id: "bolso-marrones-nuevo",
+    name: "Bolso marrón",
+    price: null,
+    isNew: true,
+    images: ["Bolso marrones.jpg"],
+    description: "Bolso en tonos marrones, un complemento versátil para completar tus looks.",
+    measurements: ""
+  },
+  {
+    id: "sudadera-pompones-negra",
+    name: "Sudadera de pompones negra",
+    price: 29.99,
+    isNew: true,
+    images: ["Sudadera pompón negra.jpg"],
+    description: "Sudadera de rayas con detalle de pompones en color negro.",
+    measurements: ""
+  },
+  {
+    id: "sudadera-pompones-gris-blanca",
+    name: "Sudadera de pompones gris y blanca",
+    price: 29.99,
+    isNew: true,
+    images: ["Sudadera pompón.jpg"],
+    description: "Sudadera de rayas con detalle de pompones en tonos gris y blanco.",
+    measurements: ""
+  },
+  {
+    id: "chaleco-pelo-marron",
+    name: "Chaleco de pelo marrón",
+    price: 29.99,
+    isNew: true,
+    images: ["Chaleco pelito.jpg"],
+    description: "Chaleco de pelo suave, ideal para completar tus looks de temporada.",
+    measurements: "Tallas S y M"
+  },
+  {
+    id: "camisa-lazo-volante-nueva",
+    name: "Camisa con lazo y volante",
+    price: 39.99,
+    isNew: true,
+    images: ["Camisalazorayas.jpg"],
+    description: "Camisa de rayas con lazo y volante, un diseño especial y femenino.",
+    measurements: ""
+  },
+  {
+    id: "bolso-borreguito-grande",
+    name: "Bolso borreguito grande",
+    price: 27.99,
+    isNew: true,
+    images: ["Bolso grande borrego.jpg"],
+    description: "Bolso grande de borreguito, cómodo y práctico para el día a día.",
+    measurements: ""
+  },
+  {
+    id: "chaleco-pelo-marron-2",
+    name: "Chaleco borreguito marrón",
+    price: 29.99,
+    isNew: true,
+    images: ["IMG_0865.jpeg"],
+    description: "Chaleco de borreguito en tono marrón, cálido y fácil de combinar.",
+    measurements: "Tallas S y M"
+  },
+  {
+    id: "chaleco-borreguito-taupe",
+    name: "Chaleco borreguito taupe",
+    price: 29.99,
+    isNew: true,
+    images: ["Chalecotapue.jpg"],
+    description: "Chaleco de borreguito en color taupe, perfecto para completar tus conjuntos.",
+    measurements: "Tallas S y M"
+  },
+  {
+    id: "bolso-negro-nuevo",
+    name: "Bolso negro",
+    price: null,
+    isNew: true,
+    images: ["Bolsonegro .jpg"],
+    description: "Bolso negro, un básico atemporal para cualquier ocasión.",
+    measurements: ""
+  },
+  {
+    id: "bolso-tote-borreguito",
+    name: "Bolso tote de borreguito",
+    price: null,
+    isNew: true,
+    images: ["bolso tote borrego.jpg"],
+    description: "Bolso tipo tote de borreguito, amplio y cómodo para el día a día.",
+    measurements: ""
+  },
+  {
+    id: "bolso-verde-nuevo",
+    name: "Bolso verde",
+    price: null,
+    isNew: true,
+    images: ["Bolso verde.jpg"],
+    description: "Bolso en color verde, ideal para aportar un toque de color a tus looks.",
+    measurements: ""
+  },
+  {
+    id: "palazzo-taupe-cinturon",
+    name: "Pantalón palazzo taupe con cinturón",
+    price: 22.99,
+    isNew: true,
+    images: ["IMG_0866.jpeg"],
+    description: "Pantalón palazzo en color taupe con cinturón incluido. También disponible en burdeos.",
+    measurements: "Talla única. Disponible también en burdeos"
+  },
+  {
+    id: "chandal-oversize-taupe",
+    name: "Chándal oversize taupe",
+    price: 25.00,
+    isNew: true,
+    images: ["chandal taupe.jpg"],
+    description: "Conjunto oversize en color taupe, cómodo y perfecto para un look relajado.",
+    measurements: "Talla amplia, da talla"
+  },
+  {
+    id: "chandal-oversize-marron",
+    name: "Chándal oversize marrón",
+    price: 25.00,
+    isNew: true,
+    images: ["chandal marrón .jpg"],
+    description: "Conjunto oversize en color marrón, cómodo y fácil de combinar.",
+    measurements: "Talla amplia, da talla"
+  },
+  {
+    id: "chandal-oversize-azul-marino",
+    name: "Chándal oversize azul marino",
+    price: 25.00,
+    isNew: true,
+    images: ["chandal azul .jpg"],
+    description: "Conjunto oversize en color azul marino, cómodo y versátil.",
+    measurements: "Talla amplia, da talla"
+  },
 ];
-
+ 
 /* CATEGORÍAS */
-
+ 
 const categories = [
   {
     id: "pantalones",
@@ -1502,7 +1646,8 @@ const categories = [
       "pantalon-verona",
       "pantalon-recto-inspiracion-levis",
       "pantalon-balloon-negro",
-      "pantalon-balloon-verde"
+      "pantalon-balloon-verde",
+      "palazzo-taupe-cinturon"
     ]
   },
   {
@@ -1533,7 +1678,11 @@ const categories = [
       "chaqueta-marron-zara",
       "chaqueta-cuadros-amarilla",
       "chaqueta-cuadros-roja",
-      "camisa-lencera-chaqueta"
+      "camisa-lencera-chaqueta",
+      "camisa-lazo-volante-nueva",
+      "chaleco-pelo-marron",
+      "chaleco-pelo-marron-2",
+      "chaleco-borreguito-taupe"
     ]
   },
   {
@@ -1569,17 +1718,23 @@ const categories = [
       "sudadera-blanca-rayas-burdeos",
       "sudadera-perro-panuelo-rosa",
       "sudadera-dogye",
-      "sudadera-perro-azul"
+      "sudadera-perro-azul",
+      "jersey-bolitas-nuevo",
+      "sudadera-pompones-negra",
+      "sudadera-pompones-gris-blanca"
     ]
   },
   {
     id: "conjuntos",
-    title: "Conjuntos",
-    subtitle: "Looks completos para tus días.",
+    title: "Chándales oversize",
+    subtitle: "Conjuntos cómodos y amplios para tus días.",
     products: [
       "chandal-licra-negro",
       "chandal-licra-marron-claro",
-      "chandal-pompon-blanco"
+      "chandal-pompon-blanco",
+      "chandal-oversize-taupe",
+      "chandal-oversize-marron",
+      "chandal-oversize-azul-marino"
     ]
   },
   {
@@ -1598,7 +1753,12 @@ const categories = [
       "monedero-leopardo-redondo",
       "monedero-leopardo-pequeno",
       "bolso-estampado",
-      "bolso-shopper-troquelado"
+      "bolso-shopper-troquelado",
+      "bolso-marrones-nuevo",
+      "bolso-borreguito-grande",
+      "bolso-negro-nuevo",
+      "bolso-tote-borreguito",
+      "bolso-verde-nuevo"
     ]
   },
   {
@@ -1612,13 +1772,13 @@ const categories = [
     ]
   }
 ];
-
+ 
 /* ELEMENTOS DE LA PÁGINA */
-
+ 
 const homeView = document.getElementById("home-view");
 const detailView = document.getElementById("detail-view");
 const catalogSections = document.getElementById("catalog-sections");
-
+ 
 const detailImage = document.getElementById("detail-image");
 const detailTitle = document.getElementById("detail-title");
 const detailPrice = document.getElementById("detail-price");
@@ -1628,50 +1788,50 @@ const detailMeasurements = document.getElementById("detail-measurements");
 const thumbnails = document.getElementById("thumbnails");
 const galleryCount = document.getElementById("gallery-count");
 const whatsappOrder = document.getElementById("whatsapp-order");
-
+ 
 const sideMenu = document.getElementById("side-menu");
 const menuOverlay = document.getElementById("menu-overlay");
-
+ 
 let currentProduct = null;
 let currentImageIndex = 0;
-
+ 
 const whatsappNumber = "34658894201";
-
+ 
 function formatPrice(price) {
   return price.toLocaleString("es-ES", {
     style: "currency",
     currency: "EUR"
   });
 }
-
+ 
 function makeImage(src, alt, className) {
   const img = document.createElement("img");
   img.src = src;
   img.alt = alt;
   img.className = className || "";
   img.loading = "lazy";
-
+ 
   img.addEventListener("error", function () {
     img.alt = "No se ha encontrado la imagen: " + src;
     img.title = "Comprueba que el nombre del archivo coincida con el de GitHub: " + src;
   });
-
+ 
   return img;
 }
-
+ 
 /* ETIQUETAS DE LOS PRODUCTOS */
-
+ 
 function createBadges(product) {
   const badges = document.createElement("div");
   badges.className = "badges";
-
+ 
   if (product.isNew === true) {
     const newBadge = document.createElement("span");
     newBadge.className = "new-badge";
     newBadge.textContent = "NUEVO";
     badges.appendChild(newBadge);
   }
-
+ 
   if (product.stock === 0) {
     const stockBadge = document.createElement("span");
     stockBadge.className = "stock-badge";
@@ -1683,97 +1843,97 @@ function createBadges(product) {
     stockBadge.textContent = "¡Última unidad!";
     badges.appendChild(stockBadge);
   }
-
+ 
   return badges;
 }
-
+ 
 /* TARJETAS DE PRODUCTOS */
-
+ 
 function createProductCard(product) {
   const card = document.createElement("button");
   card.type = "button";
   card.className = "product-card";
   card.setAttribute("aria-label", "Ver " + product.name);
-
+ 
   const image = makeImage(
     product.images[0],
     product.name,
     "card-image"
   );
-
+ 
   const info = document.createElement("div");
   info.className = "card-info";
-
+ 
   const badges = createBadges(product);
-
+ 
   if (badges.children.length > 0) {
     info.appendChild(badges);
   }
-
+ 
   const title = document.createElement("h3");
   title.textContent = product.name;
   info.appendChild(title);
-
+ 
   if (product.price !== null) {
     const price = document.createElement("p");
     price.className = "price";
     price.textContent = formatPrice(product.price);
     info.appendChild(price);
   }
-
+ 
   const viewText = document.createElement("span");
   viewText.className = "view-product";
   viewText.textContent = "Ver producto";
   info.appendChild(viewText);
-
+ 
   card.appendChild(image);
   card.appendChild(info);
-
+ 
   card.addEventListener("click", function () {
     openProduct(product.id);
   });
-
+ 
   return card;
 }
-
+ 
 /* MOSTRAR TODAS LAS SECCIONES */
-
+ 
 function renderProducts() {
   catalogSections.innerHTML = "";
-
+ 
   const newProducts = products.filter(function (product) {
     return product.isNew === true;
   });
-
+ 
   if (newProducts.length > 0) {
     const newSection = document.createElement("section");
     newSection.className = "section category-section";
     newSection.id = "novedades";
-
+ 
     const heading = document.createElement("div");
     heading.className = "category-heading";
-
+ 
     const title = document.createElement("h2");
     title.textContent = "✦ Novedades";
-
+ 
     const subtitle = document.createElement("p");
     subtitle.textContent = "Descubre lo último que ha llegado a TAMNÜR.";
-
+ 
     heading.appendChild(title);
     heading.appendChild(subtitle);
-
+ 
     const grid = document.createElement("div");
     grid.className = "products";
-
+ 
     newProducts.forEach(function (product) {
       grid.appendChild(createProductCard(product));
     });
-
+ 
     newSection.appendChild(heading);
     newSection.appendChild(grid);
     catalogSections.appendChild(newSection);
   }
-
+ 
   categories.forEach(function (category) {
     const categoryProducts = category.products
       .map(function (productId) {
@@ -1782,63 +1942,63 @@ function renderProducts() {
         });
       })
       .filter(Boolean);
-
+ 
     if (categoryProducts.length === 0) return;
-
+ 
     const section = document.createElement("section");
     section.className = "section category-section";
     section.id = category.id;
-
+ 
     const heading = document.createElement("div");
     heading.className = "category-heading";
-
+ 
     const title = document.createElement("h2");
     title.textContent = category.title;
-
+ 
     const subtitle = document.createElement("p");
     subtitle.textContent = category.subtitle;
-
+ 
     heading.appendChild(title);
     heading.appendChild(subtitle);
-
+ 
     const grid = document.createElement("div");
     grid.className = "products";
-
+ 
     categoryProducts.forEach(function (product) {
       grid.appendChild(createProductCard(product));
     });
-
+ 
     section.appendChild(heading);
     section.appendChild(grid);
     catalogSections.appendChild(section);
   });
 }
-
+ 
 /* ABRIR FICHA DE PRODUCTO */
-
+ 
 function openProduct(productId) {
   currentProduct = products.find(function (product) {
     return product.id === productId;
   });
-
+ 
   if (!currentProduct) return;
-
+ 
   currentImageIndex = 0;
-
+ 
   homeView.style.display = "none";
   detailView.style.display = "block";
-
+ 
   detailTitle.textContent = currentProduct.name;
   detailDescription.textContent = currentProduct.description;
   detailMeasurements.textContent = currentProduct.measurements || "";
-
+ 
   detailStatus.innerHTML = "";
   const badges = createBadges(currentProduct);
-
+ 
   while (badges.firstChild) {
     detailStatus.appendChild(badges.firstChild);
   }
-
+ 
   if (currentProduct.price !== null) {
     detailPrice.textContent = formatPrice(currentProduct.price);
     detailPrice.style.display = "block";
@@ -1846,127 +2006,127 @@ function openProduct(productId) {
     detailPrice.textContent = "";
     detailPrice.style.display = "none";
   }
-
+ 
   const message = "Hola, estoy interesada en " + currentProduct.name +
     (currentProduct.price !== null
       ? " (" + formatPrice(currentProduct.price) + ")"
       : "") +
     ". ¿Podéis darme información para hacer el pedido?";
-
+ 
   whatsappOrder.href =
     "https://wa.me/" + whatsappNumber +
     "?text=" + encodeURIComponent(message);
-
+ 
   renderGallery();
   closeMenu();
   window.scrollTo({ top: 0, behavior: "smooth" });
-
+ 
   history.pushState(
     { productId: productId },
     "",
     "#producto-" + productId
   );
 }
-
+ 
 /* GALERÍA DE FOTOGRAFÍAS */
-
+ 
 function renderGallery() {
   if (!currentProduct) return;
-
+ 
   const images = currentProduct.images;
   const imageSrc = images[currentImageIndex];
-
+ 
   detailImage.src = imageSrc;
   detailImage.alt = currentProduct.name + " - foto " +
     (currentImageIndex + 1);
-
+ 
   galleryCount.textContent =
     "Foto " + (currentImageIndex + 1) + " de " + images.length;
-
+ 
   thumbnails.innerHTML = "";
-
+ 
   images.forEach(function (src, index) {
     const thumb = document.createElement("button");
     thumb.type = "button";
     thumb.className =
       "thumbnail" + (index === currentImageIndex ? " active" : "");
     thumb.setAttribute("aria-label", "Ver foto " + (index + 1));
-
+ 
     const img = makeImage(
       src,
       currentProduct.name + " - miniatura " + (index + 1),
       ""
     );
-
+ 
     thumb.appendChild(img);
-
+ 
     thumb.addEventListener("click", function () {
       currentImageIndex = index;
       renderGallery();
     });
-
+ 
     thumbnails.appendChild(thumb);
   });
-
+ 
   const hasMultipleImages = images.length > 1;
-
+ 
   document.getElementById("prev-image").style.display =
     hasMultipleImages ? "block" : "none";
-
+ 
   document.getElementById("next-image").style.display =
     hasMultipleImages ? "block" : "none";
-
+ 
   thumbnails.style.display = hasMultipleImages ? "flex" : "none";
   galleryCount.style.display = hasMultipleImages ? "block" : "none";
 }
-
+ 
 /* VOLVER A LA COLECCIÓN */
-
+ 
 function returnToCollection() {
   detailView.style.display = "none";
   homeView.style.display = "block";
   currentProduct = null;
-
+ 
   history.pushState({}, "", "#coleccion");
-
+ 
   document.getElementById("coleccion").scrollIntoView({
     behavior: "smooth"
   });
 }
-
+ 
 /* MENÚ LATERAL */
-
+ 
 function openMenu() {
   sideMenu.classList.add("active");
   menuOverlay.classList.add("active");
   document.body.classList.add("menu-open");
 }
-
+ 
 function closeMenu() {
   sideMenu.classList.remove("active");
   menuOverlay.classList.remove("active");
   document.body.classList.remove("menu-open");
 }
-
+ 
 document.getElementById("open-menu").addEventListener("click", openMenu);
 document.getElementById("close-menu").addEventListener("click", closeMenu);
 menuOverlay.addEventListener("click", closeMenu);
-
+ 
 document.querySelectorAll(".menu-links a[data-target]").forEach(function (link) {
   link.addEventListener("click", function (event) {
     event.preventDefault();
-
+ 
     const targetId = link.dataset.target;
     const target = document.getElementById(targetId);
-
+ 
     closeMenu();
-
+ 
     detailView.style.display = "none";
     homeView.style.display = "block";
     currentProduct = null;
-
+ 
     history.pushState({}, "", "#" + targetId);
-
+ 
     if (target) {
       setTimeout(function () {
         target.scrollIntoView({ behavior: "smooth" });
@@ -1974,109 +2134,109 @@ document.querySelectorAll(".menu-links a[data-target]").forEach(function (link) 
     }
   });
 });
-
+ 
 /* BOTONES DE LA GALERÍA */
-
+ 
 document.getElementById("prev-image").addEventListener("click", function () {
   if (!currentProduct) return;
-
+ 
   currentImageIndex =
     (currentImageIndex - 1 + currentProduct.images.length) %
     currentProduct.images.length;
-
+ 
   renderGallery();
 });
-
+ 
 document.getElementById("next-image").addEventListener("click", function () {
   if (!currentProduct) return;
-
+ 
   currentImageIndex =
     (currentImageIndex + 1) % currentProduct.images.length;
-
+ 
   renderGallery();
 });
-
+ 
 document.getElementById("back-button").addEventListener(
   "click",
   returnToCollection
 );
-
+ 
 document.getElementById("continue-shopping").addEventListener(
   "click",
   returnToCollection
 );
-
+ 
 /* ENLACES DE NAVEGACIÓN */
-
+ 
 document.getElementById("home-link").addEventListener("click", function (event) {
   event.preventDefault();
   detailView.style.display = "none";
   homeView.style.display = "block";
   currentProduct = null;
-
+ 
   history.pushState({}, "", "#inicio");
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
-
+ 
 document.getElementById("collection-link").addEventListener("click", function (event) {
   event.preventDefault();
   detailView.style.display = "none";
   homeView.style.display = "block";
   currentProduct = null;
-
+ 
   history.pushState({}, "", "#coleccion");
   document.getElementById("coleccion").scrollIntoView({
     behavior: "smooth"
   });
 });
-
+ 
 document.getElementById("contact-link").addEventListener("click", function (event) {
   event.preventDefault();
   detailView.style.display = "none";
   homeView.style.display = "block";
   currentProduct = null;
-
+ 
   history.pushState({}, "", "#contacto");
   document.getElementById("contacto").scrollIntoView({
     behavior: "smooth"
   });
 });
-
+ 
 document.getElementById("discover-button").addEventListener("click", function (event) {
   event.preventDefault();
   document.getElementById("coleccion").scrollIntoView({
     behavior: "smooth"
   });
 });
-
+ 
 /* HISTORIAL DEL NAVEGADOR */
-
+ 
 function openProductWithoutHistory(productId) {
   currentProduct = products.find(function (product) {
     return product.id === productId;
   });
-
+ 
   if (!currentProduct) {
     detailView.style.display = "none";
     homeView.style.display = "block";
     return;
   }
-
+ 
   currentImageIndex = 0;
   homeView.style.display = "none";
   detailView.style.display = "block";
-
+ 
   detailTitle.textContent = currentProduct.name;
   detailDescription.textContent = currentProduct.description;
   detailMeasurements.textContent = currentProduct.measurements || "";
-
+ 
   detailStatus.innerHTML = "";
   const badges = createBadges(currentProduct);
-
+ 
   while (badges.firstChild) {
     detailStatus.appendChild(badges.firstChild);
   }
-
+ 
   if (currentProduct.price !== null) {
     detailPrice.textContent = formatPrice(currentProduct.price);
     detailPrice.style.display = "block";
@@ -2084,36 +2244,36 @@ function openProductWithoutHistory(productId) {
     detailPrice.textContent = "";
     detailPrice.style.display = "none";
   }
-
+ 
   const message = "Hola, estoy interesada en " + currentProduct.name +
     (currentProduct.price !== null
       ? " (" + formatPrice(currentProduct.price) + ")"
       : "") +
     ". ¿Podéis darme información para hacer el pedido?";
-
+ 
   whatsappOrder.href =
     "https://wa.me/" + whatsappNumber +
     "?text=" + encodeURIComponent(message);
-
+ 
   renderGallery();
   window.scrollTo(0, 0);
 }
-
+ 
 window.addEventListener("popstate", function () {
   const productId = window.location.hash.startsWith("#producto-")
     ? window.location.hash.replace("#producto-", "")
     : null;
-
+ 
   if (productId) {
     openProductWithoutHistory(productId);
   } else {
     detailView.style.display = "none";
     homeView.style.display = "block";
     currentProduct = null;
-
+ 
     const targetId = window.location.hash.replace("#", "");
     const target = document.getElementById(targetId);
-
+ 
     if (target) {
       target.scrollIntoView();
     } else {
@@ -2121,20 +2281,20 @@ window.addEventListener("popstate", function () {
     }
   }
 });
-
+ 
 /* INICIO */
-
+ 
 document.getElementById("year").textContent = new Date().getFullYear();
-
+ 
 renderProducts();
-
+ 
 if (window.location.hash.startsWith("#producto-")) {
   const initialProductId =
     window.location.hash.replace("#producto-", "");
-
+ 
   openProductWithoutHistory(initialProductId);
 }
 </script>
-
+ 
 </body>
 </html>
